@@ -91,9 +91,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 #scene.rush #rushbg{display:inline}
 #rays{transform-box:view-box;transform-origin:181px 140px;animation:spin 40s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.steam circle{animation:steam 4.5s ease-in infinite;transform-box:fill-box;transform-origin:center}
-.steam circle:nth-child(2){animation-delay:1.5s}.steam circle:nth-child(3){animation-delay:3s}
-@keyframes steam{0%{opacity:0;transform:translateY(8px) scale(.6)}30%{opacity:.85}100%{opacity:0;transform:translateY(-14px) scale(1.4)}}
 .glintfx{opacity:0}
 #scene.glinting .glintfx{animation:glint .9s ease}
 @keyframes glint{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
@@ -219,7 +216,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .sheet .lead{margin:.8rem 0 0;font-size:.8125rem;color:var(--sheet-muted);line-height:1.6}
 
 @media (prefers-reduced-motion: reduce){
-  .stage.shake,#rays,.steam circle,.hearts svg.breaking,.next,.cup.jolt,.stage.danger::after,.hbtn.pulse{animation:none !important}
+  .stage.shake,#rays,.hearts svg.breaking,.next,.cup.jolt,.stage.danger::after,.hbtn.pulse{animation:none !important}
   #cam,#head,#upper{transition:none !important}
   #scene.closeup #cam{transform:none}
   .ci-band,.bn-inner,.toast,#scene.enter #chr,#scene.enter #arms{animation:none !important}
@@ -248,7 +245,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   </header>
 
   <div class="stage" id="stage">
-    <svg id="scene" viewBox="0 0 360 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="応接室で向かい合う高橋部長" data-bg="room" data-pose="crossed" class="nochar">
+    <svg id="scene" viewBox="0 0 360 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="応接間で向かい合う高橋さん" data-bg="room" data-pose="crossed" class="nochar">
       <defs>
         <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A7C9DE"/><stop offset="1" stop-color="#E6EEF0"/></linearGradient>
         <linearGradient id="gSky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FBBD8"/><stop offset=".7" stop-color="#DCE9EF"/></linearGradient>
@@ -261,23 +258,25 @@ button{font:inherit;color:inherit;cursor:pointer}
       <g id="cam">
         <!-- 応接室 -->
         <g id="room">
-          <rect x="-200" y="-300" width="760" height="546" fill="#C9CEC3"/>
-          <rect x="-200" y="-22" width="760" height="6" fill="#B6BCB1"/>
-          <rect x="-200" y="246" width="760" height="200" fill="#AAB1A4"/>
-          <rect x="-200" y="243" width="760" height="5" fill="#8C9386"/>
+          <rect x="-200" y="-300" width="760" height="546" fill="#D3C9B6"/>
+          <rect x="-200" y="-22" width="760" height="6" fill="#A8987E"/>
+          <rect x="-200" y="246" width="760" height="200" fill="#A99A80"/>
+          <rect x="-200" y="243" width="760" height="5" fill="#7E6E57"/>
           <g transform="translate(12 30)">
-            <rect width="116" height="160" fill="#EFEFE8" stroke="#8C9386" stroke-width="2"/>
+            <rect width="116" height="160" fill="#F1ECE0" stroke="#7A6A55" stroke-width="2"/>
             <rect x="7" y="7" width="102" height="146" fill="url(#gSky)"/>
             <path d="M7 112 L30 94 L52 106 L78 88 L109 106 L109 153 L7 153 Z" fill="#9BB2A8"/>
-            <rect x="12" y="114" width="56" height="39" fill="#D9DCD6"/>
-            <path d="M12 114 L26 106 L40 114 L54 106 L68 114 Z" fill="#B7BDB6"/>
-            <rect x="72" y="120" width="34" height="33" fill="#C3C8C2"/>
-            <rect x="80" y="70" width="10" height="52" fill="#CDD1CB"/>
-            <rect x="78" y="78" width="14" height="4" fill="#B04A3A"/>
-            <g class="steam"><circle cx="85" cy="62" r="6" fill="#fff"/><circle cx="89" cy="50" r="8" fill="#fff"/><circle cx="94" cy="38" r="10" fill="#fff"/></g>
-            <g stroke="#E4E5DE" stroke-width="2.5"><line x1="7" y1="12" x2="109" y2="12"/><line x1="7" y1="18" x2="109" y2="18"/><line x1="7" y1="24" x2="109" y2="24"/><line x1="7" y1="30" x2="109" y2="30"/></g>
-            <line x1="58" y1="7" x2="58" y2="153" stroke="#EFEFE8" stroke-width="4"/>
-            <rect x="-4" y="158" width="124" height="7" fill="#E2E2D9"/>
+            <path d="M14 121 L36 105 L58 121 Z" fill="#5E6670"/>
+            <rect x="18" y="121" width="36" height="22" fill="#E3DDD0"/>
+            <rect x="26" y="127" width="8" height="7" fill="#9FB4BF"/>
+            <rect x="7" y="139" width="102" height="14" fill="#5E7F55"/>
+            <path d="M84 153 V112 M84 128 L74 117 M84 122 L95 111" stroke="#6B4A34" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="84" cy="104" r="19" fill="#6E8F4E"/>
+            <g fill="#E8822E"><circle cx="76" cy="100" r="3"/><circle cx="90" cy="95" r="3"/><circle cx="94" cy="108" r="3"/><circle cx="79" cy="112" r="3"/><circle cx="86" cy="104" r="2.6"/></g>
+            <path d="M7 7 H22 Q17 80 23 153 H7 Z" fill="#EDE5D3" opacity=".92"/>
+            <path d="M109 7 H94 Q99 80 93 153 H109 Z" fill="#EDE5D3" opacity=".92"/>
+            <line x1="58" y1="7" x2="58" y2="153" stroke="#F1ECE0" stroke-width="4"/>
+            <rect x="-4" y="158" width="124" height="7" fill="#E2DACB"/>
           </g>
           <g transform="translate(300 62)">
             <circle r="26" fill="#FBFBF7" stroke="#3E3E3A" stroke-width="3.5"/>
@@ -286,11 +285,18 @@ button{font:inherit;color:inherit;cursor:pointer}
             <line id="mHand" x1="0" y1="3" x2="0" y2="-19" stroke="#262624" stroke-width="2" stroke-linecap="round"/>
             <circle r="2.4" fill="#B04A3A"/>
           </g>
-          <g transform="translate(250 112)">
-            <rect width="96" height="58" fill="#F6F6F0" stroke="#5E4E36" stroke-width="4"/>
-            <path d="M16 16 h7 v-7 h7 v7 h7 v7 h-7 v7 h-7 v-7 h-7 z" fill="#2E8B57"/>
-            <text x="43" y="27" font-size="12" font-weight="700" fill="#2A2A28" font-family="serif">安全第一</text>
-            <text x="48" y="45" font-size="7" text-anchor="middle" fill="#55554F" font-family="sans-serif">無災害記録更新中</text>
+          <!-- 額縁：実家の古い写真 -->
+          <g transform="translate(252 108)">
+            <rect width="86" height="64" rx="2" fill="#5E4632" stroke="#3B2E28" stroke-width="1.5"/>
+            <rect x="6" y="6" width="74" height="52" fill="#EFE6D2"/>
+            <rect x="11" y="11" width="64" height="42" fill="#D8CFB8"/>
+            <rect x="11" y="42" width="64" height="11" fill="#B5A684"/>
+            <path d="M21 33 L40 21 L59 33 Z" fill="#7D6E5C"/>
+            <rect x="24" y="33" width="32" height="14" fill="#EDE4CF"/>
+            <rect x="30" y="37" width="8" height="6" fill="#A99C82"/>
+            <rect x="45" y="37" width="6" height="10" fill="#7D6E5C"/>
+            <path d="M66 47 V40" stroke="#7D6E5C" stroke-width="2"/>
+            <circle cx="66" cy="34" r="7" fill="#8C8A60"/>
           </g>
           <g transform="translate(330 232)">
             <path d="M-14 60 L14 60 L10 92 L-10 92 Z" fill="#8A6A52" stroke="#3B2E28" stroke-width="1.5"/>
@@ -299,22 +305,39 @@ button{font:inherit;color:inherit;cursor:pointer}
           <rect x="54" y="222" width="252" height="150" rx="22" fill="#4C5849" stroke="#2C342B" stroke-width="3"/>
           <path d="M68 232 Q180 222 292 232" stroke="#647160" stroke-width="5" fill="none" stroke-linecap="round"/>
         </g>
-        <!-- 工場の駐車場 -->
+        <!-- 高橋さんの家の前（車の中から） -->
         <g id="gate">
           <rect class="sky-day" x="-200" y="-300" width="760" height="700" fill="url(#gSky2)"/>
           <rect class="sky-dusk" x="-200" y="-300" width="760" height="700" fill="url(#gDusk)"/>
           <path d="M-200 220 L-120 186 L-40 206 L0 212 L40 178 L84 198 L132 162 L188 194 L240 170 L300 198 L360 174 L420 196 L560 168 L560 262 L-200 262 Z" fill="#6F8C82" opacity=".7"/>
-          <rect x="22" y="198" width="200" height="92" fill="#DADED8" stroke="#56605A" stroke-width="2"/>
-          <path d="M22 198 L47 182 L72 198 L97 182 L122 198 L147 182 L172 198 L197 182 L222 198 Z" fill="#BCC3BB" stroke="#56605A" stroke-width="2"/>
-          <g fill="#9FB4BF"><rect x="34" y="212" width="16" height="10"/><rect x="60" y="212" width="16" height="10"/><rect x="86" y="212" width="16" height="10"/><rect x="142" y="212" width="16" height="10"/><rect x="168" y="212" width="16" height="10"/><rect x="194" y="212" width="16" height="10"/></g>
-          <text x="122" y="246" font-size="10.5" font-weight="700" text-anchor="middle" fill="#33403A" font-family="sans-serif">東北ミナト食品株式会社　本社工場</text>
-          <rect x="236" y="214" width="78" height="76" fill="#CBD0CA" stroke="#56605A" stroke-width="2"/>
-          <rect x="262" y="118" width="16" height="98" fill="#D4D8D2" stroke="#56605A" stroke-width="2"/>
-          <rect x="260" y="130" width="20" height="6" fill="#B04A3A"/>
-          <g class="steam"><circle cx="270" cy="108" r="8" fill="#fff"/><circle cx="276" cy="92" r="11" fill="#fff"/><circle cx="284" cy="74" r="14" fill="#fff"/></g>
+          <!-- 隣の家 -->
+          <path d="M252 216 L304 188 L356 216 Z" fill="#6E6A62" stroke="#4A4740" stroke-width="2"/>
+          <rect x="262" y="216" width="84" height="72" fill="#D5D2C8" stroke="#5E5A52" stroke-width="2"/>
+          <rect x="278" y="230" width="22" height="16" fill="#9FB4BF" stroke="#5E5A52" stroke-width="1.5"/>
+          <!-- 高橋さんの家 -->
+          <rect x="44" y="196" width="162" height="92" fill="#E6DFD0" stroke="#5E5A52" stroke-width="2"/>
+          <path d="M30 200 L125 162 L220 200 Z" fill="#5C6472" stroke="#3B3F48" stroke-width="2"/>
+          <path d="M36 240 L214 240 L206 230 L44 230 Z" fill="#5C6472" stroke="#3B3F48" stroke-width="1.5"/>
+          <g fill="#9FB4BF" stroke="#5E5A52" stroke-width="1.5"><rect x="62" y="204" width="30" height="20"/><rect x="146" y="204" width="34" height="20"/><rect x="60" y="248" width="44" height="26"/></g>
+          <rect x="146" y="248" width="26" height="40" fill="#7A5C44" stroke="#5E5A52" stroke-width="1.5"/>
+          <!-- 柿の木 -->
+          <path d="M228 288 V214 M228 238 L214 222 M228 230 L242 216" stroke="#6B4A34" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="228" cy="200" r="28" fill="#6E8F4E"/>
+          <g fill="#E8822E"><circle cx="216" cy="194" r="4"/><circle cx="236" cy="186" r="4"/><circle cx="242" cy="206" r="4"/><circle cx="222" cy="212" r="4"/><circle cx="230" cy="200" r="3.5"/></g>
+          <!-- 塀と門 -->
+          <g fill="#BDB7AA" stroke="#77716A" stroke-width="1.5"><rect x="14" y="264" width="114" height="26"/><rect x="192" y="264" width="64" height="26"/></g>
+          <path d="M14 277 H128 M192 277 H256" stroke="#9A9488" stroke-width="1.2"/>
+          <g fill="#8F887A" stroke="#5E5A52" stroke-width="1.5"><rect x="124" y="252" width="14" height="38"/><rect x="182" y="252" width="14" height="38"/></g>
+          <rect x="126" y="257" width="10" height="21" fill="#F2EBDD" stroke="#5E5A52" stroke-width="1"/>
+          <text x="131" y="266" font-size="7.5" font-weight="700" text-anchor="middle" fill="#2A2A28" font-family="serif">高</text>
+          <text x="131" y="275" font-size="7.5" font-weight="700" text-anchor="middle" fill="#2A2A28" font-family="serif">橋</text>
+          <!-- 電柱 -->
+          <rect x="314" y="96" width="7" height="194" fill="#A3A098" stroke="#6E6B64" stroke-width="1.2"/>
+          <rect x="302" y="112" width="31" height="4" fill="#6E6B64"/>
+          <path d="M-200 128 Q60 150 304 114 M333 114 Q450 104 560 120 M-200 140 Q80 166 310 118 M326 118 Q450 110 560 132" stroke="#3E4247" stroke-width="1" fill="none"/>
           <rect x="-200" y="288" width="760" height="420" fill="#868B83"/>
           <rect x="-200" y="286" width="760" height="5" fill="#666C65"/>
-          <g stroke="#E6E9E2" stroke-width="3" opacity=".75"><line x1="60" y1="300" x2="30" y2="400"/><line x1="140" y1="300" x2="128" y2="400"/><line x1="220" y1="300" x2="232" y2="400"/><line x1="300" y1="300" x2="330" y2="400"/></g>
+          <line x1="-200" y1="302" x2="560" y2="302" stroke="#E6E9E2" stroke-width="3" opacity=".75"/>
           <path d="M-200 346 Q180 304 560 346 L560 700 L-200 700 Z" fill="#22262A"/>
           <path d="M-200 346 Q180 304 560 346" stroke="#3A4046" stroke-width="2" fill="none"/>
           <circle cx="266" cy="410" r="86" stroke="#121417" stroke-width="15" fill="none"/>
@@ -323,24 +346,23 @@ button{font:inherit;color:inherit;cursor:pointer}
         <!-- 反論ラッシュの背景 -->
         <g id="rushbg"><rect x="-200" y="-300" width="760" height="1000" fill="#2A0907" opacity=".74"/><g id="rays" fill="#FFD9CC" opacity=".16"></g></g>
 
-        <!-- 高橋部長 -->
+        <!-- 高橋さん -->
         <g id="chr">
           <g id="upper">
-            <path d="M58 400 C60 330 86 282 134 264 L181 254 L228 264 C276 282 302 330 304 400 Z" fill="#8E9CA5" stroke="#3B2E28" stroke-width="2.5"/>
-            <path d="M70 400 C74 342 92 302 122 284 L114 400 Z" fill="#7A8891" opacity=".75"/>
-            <path d="M292 400 C288 342 270 302 240 284 L248 400 Z" fill="#7A8891" opacity=".75"/>
+            <path d="M58 400 C60 330 86 282 134 264 L181 254 L228 264 C276 282 302 330 304 400 Z" fill="#9A7B5D" stroke="#3B2E28" stroke-width="2.5"/>
+            <path d="M70 400 C74 342 92 302 122 284 L114 400 Z" fill="#83664B" opacity=".75"/>
+            <path d="M292 400 C288 342 270 302 240 284 L248 400 Z" fill="#83664B" opacity=".75"/>
             <path d="M158 196 L158 262 L204 262 L204 196 Z" fill="#DDB08A" stroke="#3B2E28" stroke-width="2"/>
             <path d="M158 210 Q181 232 204 210 L204 226 Q181 246 158 226 Z" fill="#C79A74"/>
-            <path d="M148 262 L181 314 L214 262 L201 254 L181 276 L161 254 Z" fill="#F2F1EB" stroke="#3B2E28" stroke-width="2"/>
-            <path d="M175 277 L187 277 L191 314 L171 314 Z" fill="#2E3D5A" stroke="#3B2E28" stroke-width="2"/>
-            <path d="M174 266 L188 266 L186 279 L176 279 Z" fill="#24304A" stroke="#3B2E28" stroke-width="2"/>
-            <path d="M134 264 L161 254 L171 290 L148 284 Z" fill="#9BA9B1" stroke="#3B2E28" stroke-width="2"/>
-            <path d="M228 264 L201 254 L191 290 L214 284 Z" fill="#9BA9B1" stroke="#3B2E28" stroke-width="2"/>
-            <path d="M181 314 L181 400" stroke="#5E6B73" stroke-width="2"/>
-            <rect x="212" y="300" width="42" height="14" rx="2" fill="#F2F1EB" stroke="#3B2E28" stroke-width="1.5"/>
-            <text x="233" y="310" font-size="7" font-weight="700" text-anchor="middle" fill="#2E3D5A" font-family="sans-serif">ミナト食品</text>
-            <path d="M110 304 h36 v26 h-36 z" fill="none" stroke="#6E7C85" stroke-width="2"/>
-            <rect x="118" y="295" width="3.5" height="14" fill="#2E3D5A"/>
+            <path d="M148 262 L181 314 L214 262 L201 254 L181 276 L161 254 Z" fill="#E7ECEF" stroke="#3B2E28" stroke-width="2"/>
+            <path d="M160 254 L180 277 L167 287 L151 263 Z" fill="#F4F6F7" stroke="#3B2E28" stroke-width="1.8"/>
+            <path d="M202 254 L182 277 L195 287 L211 263 Z" fill="#F4F6F7" stroke="#3B2E28" stroke-width="1.8"/>
+            <g fill="#C9CED2"><circle cx="181" cy="292" r="2"/><circle cx="181" cy="306" r="2"/></g>
+            <path d="M143 262 L152 257 L184 314 L181 324 Z" fill="#86684C" stroke="#3B2E28" stroke-width="1.8"/>
+            <path d="M219 262 L210 257 L178 314 L181 324 Z" fill="#86684C" stroke="#3B2E28" stroke-width="1.8"/>
+            <rect x="176" y="320" width="10" height="80" fill="#86684C" stroke="#3B2E28" stroke-width="1.8"/>
+            <g fill="#EBDDC6" stroke="#3B2E28" stroke-width="1.2"><circle cx="181" cy="336" r="3"/><circle cx="181" cy="358" r="3"/><circle cx="181" cy="380" r="3"/></g>
+            <path d="M110 304 h36 v26 h-36 z" fill="none" stroke="#83664B" stroke-width="2"/>
 
             <g id="head">
               <path d="M131 116 C118 110 113 136 122 149 C126 155 133 153 134 146 Z" fill="#E8C29E" stroke="#3B2E28" stroke-width="2"/>
@@ -498,7 +520,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <h1 class="logo">ウラ読み<br>商談</h1>
     <p class="tagline">表情を読め。本音を引き出せ。</p>
     <div class="menu">
-      <button class="mbtn primary" type="button" id="startBtn"><span class="ep">第1話</span><span class="nm">鉄壁の工場長</span><span class="st" id="bestRank">はじめる</span></button>
+      <button class="mbtn primary" type="button" id="startBtn"><span class="ep">第1話</span><span class="nm">鉄壁の売り主</span><span class="st" id="bestRank">はじめる</span></button>
       <button class="mbtn" type="button" disabled><span class="ep">第2話</span><span class="nm">価格の番人</span><span class="st">準備中</span></button>
       <div class="subrow">
         <button class="hbtn" type="button" id="titleDex">テクニック図鑑</button>
@@ -523,12 +545,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* ===================== データ ===================== */
 const T = "takahashi";
 const NOTES = {
-  F1: "ボイラーは2台。導入15年で、更新時期が近い",
-  F2: "昨年、燃料費が予算を超え、社長に詰められた",
-  F3: "食品工場なので、ラインを止めるのが最大の恐怖",
-  F4: "以前、他社の「年1000万浮く」が後から覆った",
-  F5: "生産が止まるのは、年末年始の3日間だけ",
-  F6: "設備案件は実質、高橋部長の推薦で決まる"
+  F1: "実家は築45年の木造2階建て。2年前から空き家",
+  F2: "月2回、片道40分かけて管理に通う。隣から苦情も来た",
+  F3: "家には母の遺品が、手つかずのまま残っている",
+  F4: "以前、他社の「2,800万で売れる」が値下げ続きで覆った",
+  F5: "来年の春に母の三回忌。それまでは手放したくない",
+  F6: "実家のことは、妹から高橋さんが全部任されている"
 };
 
 const DEX = {
@@ -537,12 +559,12 @@ const DEX = {
   rapport:{name:"ラポール形成",good:true,desc:"共通点や関心を示して、心の距離を縮める。人は自分に関心を向けてくれる相手に好意を返す。",tip:"忙しい相手には短く切り上げて、本題につなぐ。"},
   labeling:{name:"ラベリング",good:true,desc:"相手の感情を言葉にして返す（「悔しいパターンですね」）。わかってもらえたと感じると、怒りは静まる。交渉術の定番。",tip:"決めつけず、相手の言葉をそのまま借りる。"},
   open_q:{name:"オープンクエスチョン",good:true,desc:"「どこが」「どのように」と、自由に答えられる質問。事実の奥にある本音を引き出せる。",tip:"答えにくそうなら、選択肢を添える。"},
-  spin_s:{name:"SPIN話法：状況質問",good:true,desc:"設備や体制など、現状の事実を確かめる質問。あとで提案を組み立てる材料になる。",tip:"調べればわかることを聞きすぎると、尋問になる。"},
+  spin_s:{name:"SPIN話法：状況質問",good:true,desc:"物件の状態や今後の予定など、現状の事実を確かめる質問。あとで提案を組み立てる材料になる。",tip:"調べればわかることを聞きすぎると、尋問になる。"},
   spin_p:{name:"SPIN話法：問題質問",good:true,desc:"困りごとを聞く質問。相手が自分の口で課題を語ると、解決への関心が一気に高まる。",tip:"状況質問で得た事実に寄せて聞くと自然になる。"},
-  social_proof:{name:"社会的証明",good:true,desc:"迷ったとき、人は「自分に似た誰か」の行動を手本にする。業種や地域が近い事例ほど効く。",tip:"実在し、紹介の許可を得た事例だけを使う。"},
+  social_proof:{name:"社会的証明",good:true,desc:"迷ったとき、人は「自分に似た誰か」の行動を手本にする。地域や境遇が近い事例ほど効く。",tip:"実在し、紹介の許可を得た事例だけを使う。"},
   personalize:{name:"自己関連付け効果",good:true,desc:"人は「自分に関係する話」を特に重く受け止める。相手から聞いた事実で提案を組み立てると、「自分のための提案」になる。",tip:"ヒアリングで聞いたことを、相手の言葉のまま提案に使う。"},
   two_sided:{name:"両面提示",good:true,desc:"良い面だけでなく、限界やリスクも正直に伝える。疑い深い相手ほど、一方的なアピールより信頼する。",tip:"「合わなければ合わないと言う」は強い誠実さのサイン。"},
-  ikea:{name:"IKEA効果",good:true,desc:"人は、自分が作るのに関わったものを高く評価する。提案を一緒に作れば、相手は「自分の案」として推してくれる。",tip:"決裁者に出す資料こそ、窓口の人と一緒に作る。"},
+  ikea:{name:"IKEA効果",good:true,desc:"人は、自分が作るのに関わったものを高く評価する。提案を一緒に作れば、相手は「自分の案」として推してくれる。",tip:"家族や決裁者に見せる資料こそ、目の前の相手と一緒に作る。"},
   fitd:{name:"フット・イン・ザ・ドア",good:true,desc:"小さな依頼に応じると、人は次の依頼も受け入れやすくなる（一貫性の原理）。最初の一歩は小さく。",tip:"最初の依頼は、相手が断る理由のない大きさにする。"},
   double_bind:{name:"ダブルバインド",good:true,desc:"「やるか、やらないか」ではなく「火曜か、木曜か」を聞く。決断の負担が下がる。",tip:"信頼がない段階で使うと、誘導だと見透かされる。"},
   reactance:{name:"心理的リアクタンス",good:false,desc:"押しつけられると、人は反発したくなる。聞く準備のない相手への売り込みは、内容が良くても逆効果。",tip:"説明の前に、相手が話を聞く理由をつくれ。"},
@@ -552,7 +574,7 @@ const DEX = {
   anchoring:{name:"根拠のないアンカリング",good:false,desc:"最初に出した数字は強く記憶に残る。根拠のない大きな数字は、あとで必ず不信に変わる。",tip:"数字を出すなら、根拠と前提をセットにしろ。"},
   evasion:{name:"回答の回避",good:false,desc:"聞かれたことに答えないと、自信がないと受け取られる。",tip:"答えられない理由と、答えるための条件をセットで伝えろ。"},
   empty_assurance:{name:"根拠のない保証",good:false,desc:"相手の状況を知らずに言う「大丈夫です」は、軽く聞こえる。",tip:"保証の代わりに、具体的な方法か根拠を示せ。"},
-  bypass:{name:"頭越し",good:false,desc:"窓口の人を飛ばして決裁者に会おうとすると、味方になりうる人を敵に回す。",tip:"決裁者に上げる役は、窓口の人に担ってもらえ。"},
+  bypass:{name:"頭越し",good:false,desc:"目の前の相手を飛ばして、家族や決裁者に直接話を持っていくと、味方になりうる人を敵に回す。",tip:"ほかの人への説明は、目の前の相手に担ってもらえ。"},
   passive_close:{name:"主導権の放棄",good:false,desc:"「ご検討ください」で終わると、次の行動が誰にも決まらない。",tip:"最後は自分から、具体的な日時と次の一歩を提案しろ。"},
   silence:{name:"長すぎる沈黙",good:false,desc:"想定外の反応に固まると、自信のなさが伝わる。",tip:"完璧な答えより、まず受け止めるひと言を返せ。"}
 };
@@ -574,7 +596,7 @@ const FACES = {
 };
 const OPEN = {flat:"talk",frown:"frownopen",smirk:"talk",o:"talk",shout:"frownopen",grit:"frownopen",smile:"smileopen",smileopen:"smile"};
 const PLATES = {
-  takahashi:{name:"高橋 部長",color:"#9B3226"},
+  takahashi:{name:"高橋 さん",color:"#9B3226"},
   you:{name:"あなた",color:"#1E7A70"},
   inner:{name:"あなた（心の声）",color:"#2F5F8F"},
   oni:{name:"鬼塚 先輩",color:"#8C6A12"}
@@ -586,22 +608,23 @@ const TIMEOUT = {line:"……。",tech:["silence"],kind:"bad",trust:-1,then:[
 ]};
 
 const QUESTIONS = [
-  {qid:"q1",label:"「今のボイラーは、導入から何年ほどですか」",line:"今お使いのボイラーは、導入から何年ほどになりますか。",tech:["spin_s"],kind:"good",wall:-5,time:4,then:[
-    {t:"say",who:T,text:"炉筒煙管が2台。もう15年になるな。そろそろ更新も考えなきゃいかん。",face:"neutral"},
+  {qid:"q1",label:"「ご実家は、建ってから何年ほどですか」",line:"ご実家は、建ってから何年ほどになりますか。",tech:["spin_s"],kind:"good",wall:-5,time:4,then:[
+    {t:"say",who:T,text:"木造の2階建てでな。親父が建てて、もう45年になる。",face:"neutral"},
+    {t:"say",who:T,text:"おふくろが亡くなって2年。それからずっと空き家だ。",face:"think"},
     {t:"note",id:"F1"}]},
-  {qid:"q4",label:"「燃料の請求書を、拝見できますか」",line:"月々の燃料の請求書を拝見できれば、すぐに削減額を試算してお持ちします。",tech:["premature_ask"],kind:"bad",trust:-1,wall:10,time:4,then:[
-    {t:"say",who:T,text:"初対面で請求書？冗談じゃない。",face:"angry",fx:["shake"],sfx:"impact"},
-    {t:"say",who:T,text:"数字を渡して、また大きな話を持ってこられても困るんだよ。",face:"annoyed"}]},
-  {qid:"q2",label:"「燃料費の高騰で、お困りになったことは？」",line:"ここ数年、重油の価格がかなり動きました。予算の面で、お困りになったことはありませんか。",tech:["spin_p"],kind:"good",wall:-15,time:4,then:[
-    {t:"say",who:T,text:"……あったよ。",face:"sad",pose:"table"},
-    {t:"say",who:T,text:"去年は燃料費が予算を大きく超えてな。経営会議で、社長にだいぶ詰められた。",face:"sad"},
-    {t:"say",who:T,text:"こっちは油の値段なんて、どうにもできないのにさ。",face:"annoyed"},
+  {qid:"q4",label:"「権利証と固定資産税の通知書を、拝見できますか」",line:"権利証と固定資産税の納税通知書を拝見できれば、すぐに査定額をお出しします。",tech:["premature_ask"],kind:"bad",trust:-1,wall:10,time:4,then:[
+    {t:"say",who:T,text:"初対面の人間に、権利証を見せろだと？冗談じゃない。",face:"angry",fx:["shake"],sfx:"impact"},
+    {t:"say",who:T,text:"書類を渡して、また大きな数字を持ってこられても困るんだよ。",face:"annoyed"}]},
+  {qid:"q2",label:"「空き家の管理で、ご苦労されていることは？」",line:"空き家は、持っているだけでも手間がかかると聞きます。管理の面で、ご苦労されていることはありませんか。",tech:["spin_p"],kind:"good",wall:-15,time:4,then:[
+    {t:"say",who:T,text:"……あるよ。",face:"sad",pose:"table"},
+    {t:"say",who:T,text:"月に2回、片道40分かけて、草刈りと風通しに通ってる。去年の夏は、伸びた庭木のことで隣から苦情まで来た。",face:"sad"},
+    {t:"say",who:T,text:"妹は東京だからな。全部、俺がやるしかないんだよ。",face:"annoyed"},
     {t:"note",id:"F2"}]},
-  {qid:"q3",label:"「生産が止まるのは、年にどれくらいですか」",line:"工場の生産が止まるのは、年にどれくらいありますか。",tech:["spin_s"],kind:"good",wall:-5,time:4,then:[
-    {t:"say",who:T,text:"止める？……年末年始の3日間だけだな。定期休止だ。",face:"doubt"},
-    {t:"say",who:T,text:"なんでそんなことを聞く？",face:"stern"},
+  {qid:"q3",label:"「売るとしたら、時期のご希望はありますか」",line:"仮に売却するとしたら、時期のご希望はありますか。",tech:["spin_s"],kind:"good",wall:-5,time:4,then:[
+    {t:"say",who:T,text:"時期？……来年の春に、おふくろの三回忌がある。",face:"doubt"},
+    {t:"say",who:T,text:"それまでは、人手に渡す気はないな。まあ、売ると決めたわけでもないが。",face:"stern"},
     {t:"note",id:"F5"},
-    {t:"say",who:"inner",text:"年に一度、3日間だけ止まる……。これは覚えておこう。"}]}
+    {t:"say",who:"inner",text:"来年の春に、三回忌……。これは覚えておこう。"}]}
 ];
 
 function askMenu(){
@@ -617,52 +640,52 @@ function afterAsk(){
 
 function rush1(){
   const opts = [
-    {label:"「工事はすぐ終わるので、大丈夫です」",line:"工事は短期間で終わりますので、大丈夫です！",tech:["empty_assurance"],kind:"bad",trust:-1,then:[
-      {t:"say",who:T,text:"「大丈夫」だと？うちのラインの、何を知ってるんだ！",face:"angry",fx:["shake"],sfx:"impact"}]}
+    {label:"「片付けは業者に頼めば、すぐ終わります」",line:"片付けは専門の業者に頼めば、数日で終わりますので大丈夫です！",tech:["empty_assurance"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"「すぐ終わる」だと？おふくろの物を、ゴミみたいに言うな！",face:"angry",fx:["shake"],sfx:"impact"}]}
   ];
   if (G.notes.includes("F5")) opts.push(
-    {badge:"手帳",label:"「年末年始の休止に、1台ずつ切り替えれば」",line:"年末年始の3日間の定期休止を使って、ボイラーを1台ずつ切り替えます。それなら、ラインは一度も止まりません。",tech:["personalize"],kind:"good",wall:-30,then:[
-      {t:"say",who:T,text:"なっ……休止の間に、1台ずつだと……！？",face:"shock",fx:["flash","zoom"],sfx:"hit"},
-      {t:"say",who:T,text:"……それなら、確かにラインは止まらんな。",face:"think",pose:"chin"}]});
+    {badge:"手帳",label:"「三回忌で、ご親族に形見分けをしていただいては」",line:"来年の春の三回忌には、ご親族が集まられますよね。そのときに形見分けをしていただいて、お引き渡しはその後に合わせます。残った物の整理は、皆さんが選び終えてからにします。",tech:["personalize"],kind:"good",wall:-30,then:[
+      {t:"say",who:T,text:"なっ……三回忌で、形見分けだと……！？",face:"shock",fx:["flash","zoom"],sfx:"hit"},
+      {t:"say",who:T,text:"……それなら、おふくろの物も、ちゃんと行き先が決まるな。",face:"think",pose:"chin"}]});
   opts.push(
-    {label:"「同じ宮城の食品工場で、止めずに切り替えた例が」",line:"同じ宮城の食品工場さんで、休止期間中に切り替えを終えた例があります。生産への影響はありませんでした。",tech:["social_proof"],kind:"good",wall:-15,then:[
-      {t:"say",who:T,text:"……同じ食品工場で、か。",face:"think",pose:"chin"},
-      {t:"say",who:T,text:"まあ、そういう例があるなら、頭から無理とは言わんが……。",face:"doubt"}]});
+    {label:"「同じ市内で、形見を選んでから売却した例が」",line:"同じ市内で、ご家族に形見の品を選んでいただいてから、売却を進めた例があります。思い出の品は、ひとつも勝手には処分しませんでした。",tech:["social_proof"],kind:"good",wall:-15,then:[
+      {t:"say",who:T,text:"……同じような家で、か。",face:"think",pose:"chin"},
+      {t:"say",who:T,text:"まあ、そういうやり方があるなら、頭から無理とは言わんが……。",face:"doubt"}]});
   if (!G.notes.includes("F5")) opts.push(
-    {label:"「止めずに済む方法を、これから考えます」",line:"ラインを止めずに済む方法を、これから考えます。",tech:["evasion"],kind:"bad",trust:-1,then:[
+    {label:"「片付けの方法は、これから考えます」",line:"ご遺品の片付けの方法は、これから考えます。",tech:["evasion"],kind:"bad",trust:-1,then:[
       {t:"say",who:T,text:"これから？何も考えずに来たのか。",face:"annoyed"}]});
-  return [{t:"choice",prompt:"反論その1",timer:15,observe:"テーブルを叩いた。「ライン」という言葉を何度も繰り返している。止めずに済む具体策があれば、一気に崩せる。",options:opts}];
+  return [{t:"choice",prompt:"反論その1",timer:15,observe:"テーブルを叩いたが、「おふくろの物」と言うとき、声がかすれた。遺品を大切に扱える具体策があれば、一気に崩せる。",options:opts}];
 }
 function rush2(){
-  return [{t:"choice",prompt:"反論その2",timer:15,observe:"眼鏡の奥の目は笑っていない。前の業者と同じことを言うかどうか、試している。",options:[
-    {label:"「データを見ないと、何とも……」",line:"それは……データを拝見しないと、何とも申し上げられません……。",tech:["evasion"],kind:"bad",trust:-1,then:[
+  return [{t:"choice",prompt:"反論その2",timer:15,observe:"眼鏡の奥の目は笑っていない。前の不動産屋と同じことを言うかどうか、試している。",options:[
+    {label:"「家の中を見ないと、何とも……」",line:"それは……家の中を拝見しないと、何とも申し上げられません……。",tech:["evasion"],kind:"bad",trust:-1,then:[
       {t:"say",who:T,text:"じゃあ、何しに来たんだ。",face:"annoyed",pose:"crossed"}]},
-    {label:"「年間1,500万円は削減できます！」",line:"年間1,500万円は削減できます！",tech:["anchoring"],kind:"bad",trust:-2,then:[
+    {label:"「3,000万円は固いです！」",line:"このあたりなら、3,000万円は固いです！",tech:["anchoring"],kind:"bad",trust:-2,then:[
       {t:"say",who:T,text:"前のやつと、まったく同じだな！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"},
       {t:"say",who:T,text:"根拠もない数字を振り回すやつは、信用できん！",face:"angry"}]},
-    {badge:"手帳",label:"「数字の前に、正直にお伝えしたいことが」",line:"正直に申し上げます。拝見する前に数字を出せば、前回と同じことになります。工事費込みの総額で、根拠と一緒にお出しします。合わなければ、「合わない」とはっきり申し上げます。",tech:["two_sided"],kind:"good",wall:-30,then:[
-      {t:"say",who:T,text:"「合わない」と言う……だと？",face:"surprise",fx:["zoom"],sfx:"hit"},
-      {t:"say",who:T,text:"……ガス屋の口から、そんな言葉を聞いたのは初めてだ。",face:"shock",pose:"table"}]}
+    {badge:"手帳",label:"「数字の前に、正直にお伝えしたいことが」",line:"正直に申し上げます。家の中も見ずに数字を出せば、前回と同じことになります。近所で実際に売れた価格を根拠に、売れる見込みの値段をお出しします。ご期待より低くなるかもしれません。そのときも、はっきりそう申し上げます。",tech:["two_sided"],kind:"good",wall:-30,then:[
+      {t:"say",who:T,text:"「低くなる」と、自分から言う……だと？",face:"surprise",fx:["zoom"],sfx:"hit"},
+      {t:"say",who:T,text:"……不動産屋の口から、そんな言葉を聞いたのは初めてだ。",face:"shock",pose:"table"}]}
   ]}];
 }
 function rush3(){
   const opts = [
-    {label:"「では、社長様に直接ご説明させてください」",line:"でしたら、一度社長様に直接ご説明させていただけませんか。",tech:["bypass"],kind:"bad",trust:-2,then:[
-      {t:"say",who:T,text:"俺の頭越しに行くってのか！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"}]},
-    {label:"「では、社長様あてに資料をお送りします」",line:"承知しました。では、社長様あてに資料をお送りしておきます。",tech:["passive_close"],kind:"bad",trust:-1,then:[
+    {label:"「では、妹様に直接ご説明させてください」",line:"でしたら、一度妹様に直接ご説明させていただけませんか。",tech:["bypass"],kind:"bad",trust:-2,then:[
+      {t:"say",who:T,text:"俺の頭越しに、妹に話を持っていくってのか！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"}]},
+    {label:"「では資料をお送りしますので、妹様とご相談を」",line:"承知しました。では資料をお送りしますので、妹様とご相談ください。",tech:["passive_close"],kind:"bad",trust:-1,then:[
       {t:"say",who:T,text:"……好きにすればいい。",face:"annoyed",pose:"crossed"}]}
   ];
   if (G.notes.includes("F6")) opts.splice(1,0,
-    {badge:"手帳",label:"「社長への説明資料を、部長と一緒に作らせてください」",line:"設備のことは、高橋部長が任されていると伺いました。社長にご説明いただくときに困らない資料を、部長と一緒に作らせてください。",tech:["ikea"],kind:"good",wall:-30,then:[
+    {badge:"手帳",label:"「妹様への説明資料を、一緒に作らせてください」",line:"ご実家のことは、高橋さんが任されていると伺いました。妹様にご説明いただくときに困らない資料を、高橋さんと一緒に作らせてください。",tech:["ikea"],kind:"good",wall:-30,then:[
       {t:"say",who:T,text:"……！",face:"surprise",fx:["zoom"],sfx:"hit"},
       {t:"say",who:T,text:"……ふっ。俺の顔を立てるつもりか。",face:"grin",pose:"table"}]});
   else opts.splice(1,0,
-    {label:"「まずは部長に、判断材料をそろえていただければ」",line:"まずは高橋部長に、ご判断の材料をそろえていただければ十分です。",tech:[],kind:"neutral",wall:-10,then:[
+    {label:"「まずは高橋さんに、判断の材料をそろえていただければ」",line:"まずは高橋さんに、ご判断の材料をそろえていただければ十分です。",tech:[],kind:"neutral",wall:-10,then:[
       {t:"say",who:T,text:"……まあ、材料くらいは見てやってもいいが。",face:"doubt"}]});
-  return [{t:"choice",prompt:"反論その3",timer:15,observe:"「決めるのは社長」と言いながら、目が泳いだ。本当に決めているのは誰なのか……。",options:opts}];
+  return [{t:"choice",prompt:"反論その3",timer:15,observe:"「俺の一存じゃ」と言いながら、目が泳いだ。本当に決めているのは誰なのか……。",options:opts}];
 }
 function afterRush(){
-  if (G.broken) return [{t:"say",who:T,text:"……ふう。久しぶりに、まともな営業と話した気がするよ。",face:"soft",pose:"table"}];
+  if (G.broken) return [{t:"say",who:T,text:"……ふう。久しぶりに、まともな不動産屋と話した気がするよ。",face:"soft",pose:"table"}];
   if (G.wall <= 30) return [{t:"say",who:"inner",text:"壁はほとんど崩れた。あと一押しだ……！",face:"think"}];
   return [{t:"say",who:"inner",text:"まだ壁は厚い……。ここで欲張るのは危険だ。",face:"stern",pose:"crossed"}];
 }
@@ -673,20 +696,20 @@ function finale(key){
       const honest = G.used.includes("two_sided");
       return [
         {t:"say",who:T,text:"……火曜の午後だ。",face:"neutral",pose:"table"},
-        {t:"say",who:T,text:"ボイラー室、見ていけ。",face:"smile",fx:["flash"],sfx:"clear"},
-        {t:"say",who:T,text:honest ? "それと――次も、合わないならちゃんとそう言えよ。" : "それと――次は、根拠のある数字を持ってこいよ。",face:"grin"},
-        {t:"banner",kind:"clear",title:"ミッション達成",text:"現地調査の約束を取りつけた！"},
+        {t:"say",who:T,text:"おふくろの家、見てやってくれ。",face:"smile",fx:["flash"],sfx:"clear"},
+        {t:"say",who:T,text:honest ? "それと――査定が低くても、ちゃんとそう言えよ。" : "それと――次は、根拠のある数字を持ってこいよ。",face:"grin"},
+        {t:"banner",kind:"clear",title:"ミッション達成",text:"訪問査定の約束を取りつけた！"},
         {t:"char",v:false},{t:"bg",v:"dusk"},
-        {t:"say",who:"narr",text:"午後2時30分。工場の駐車場。"},
-        {t:"say",who:"oni",text:"……本当か！？あの「鉄壁の高橋」から、現地調査を取ったって！？"},
+        {t:"say",who:"narr",text:"午後2時30分。高橋さんの家の前。"},
+        {t:"say",who:"oni",text:"……本当か！？あの「鉄壁の高橋」から、訪問査定を取ったって！？"},
         {t:"say",who:"oni",text:"……お前、やるじゃないか。"},
-        {t:"say",who:"oni",text:"だがな、本当の勝負は次の提案だ。今日の約束、忘れるなよ。"},
+        {t:"say",who:"oni",text:"だがな、本当の勝負は査定の結果を出すときだ。今日の約束、忘れるなよ。"},
         {t:"end",v:"success"}
       ];
     }
     return [
       {t:"say",who:T,text:"……悪くない話だ。だが、まだそこまでは決められん。",face:"think",pose:"chin"},
-      {t:"say",who:T,text:"資料だけ置いていってくれ。",face:"stern",pose:"crossed"},
+      {t:"say",who:T,text:"名刺だけ置いていってくれ。",face:"stern",pose:"crossed"},
       {t:"banner",kind:"hold",title:"保留",text:"次の約束は取れなかった……"},
       {t:"char",v:false},{t:"bg",v:"dusk"},
       {t:"say",who:"oni",text:"門前払いじゃなかっただけ、上出来だ。"},
@@ -703,7 +726,7 @@ function finale(key){
   }
   return [
     {t:"say",who:T,text:"ああ、送っといて。",face:"neutral"},
-    {t:"say",who:"narr",text:"高橋部長は、もう壁の時計を見ていた。"},
+    {t:"say",who:"narr",text:"高橋さんは、もう壁の時計を見ていた。"},
     {t:"banner",kind:"hold",title:"保留",text:"次の約束は取れなかった……"},
     {t:"char",v:false},{t:"bg",v:"dusk"},
     {t:"say",who:"oni",text:"「ご検討ください」で終わった商談はな、たいていそのまま消える。"},
@@ -714,57 +737,57 @@ function finale(key){
 
 const SCRIPT = [
   {t:"bg",v:"gate"},{t:"char",v:false},
-  {t:"say",who:"narr",text:"10月某日、午後1時50分。宮城県、東北ミナト食品の本社工場。"},
-  {t:"say",who:"oni",text:"いいか、もう一度確認するぞ。今日の相手は工場長の高橋さん。業界じゃ「鉄壁の高橋」で通ってる。"},
-  {t:"say",who:"oni",text:"燃料転換を持ちかけたガス会社は、これまで全員門前払いだ。"},
+  {t:"say",who:"narr",text:"10月某日、午後1時50分。宮城県仙台市の住宅街、高橋さんの家の前。"},
+  {t:"say",who:"oni",text:"いいか、もう一度確認するぞ。今日の相手は高橋さん。このあたりの不動産屋じゃ「鉄壁の高橋」で通ってる。"},
+  {t:"say",who:"oni",text:"空き家になったご実家の売却を持ちかけた不動産屋は、これまで全員門前払いだ。"},
   {t:"say",who:"you",text:"……そんな相手に、私ひとりで行くんですか。"},
-  {t:"say",who:"oni",text:"俺は別件で入れない。それに、お前の「聞く力」を試すにはちょうどいい。"},
-  {t:"say",who:"oni",text:"今日のゴールは契約じゃない。ボイラー室の現地調査、その約束を取ってこい。"},
-  {t:"banner",kind:"mission",title:"ミッション",text:"現地調査の約束を取りつけろ"},
+  {t:"say",who:"oni",text:"俺は次の内見の案内がある。それに、お前の「聞く力」を試すにはちょうどいい。"},
+  {t:"say",who:"oni",text:"今日のゴールは契約じゃない。ご実家の訪問査定、その約束を取ってこい。"},
+  {t:"banner",kind:"mission",title:"ミッション",text:"訪問査定の約束を取りつけろ"},
   {t:"hud",v:true},
   {t:"say",who:"oni",text:"画面の上を見ろ。ハートは、お前への信頼だ。失言すれば減る。ゼロになったら追い出される。"},
   {t:"say",who:"oni",text:"その下が、高橋さんの「心の壁」。本音に触れるたびに崩れていく。"},
   {t:"say",who:"oni",text:"持ち時間は30分。迷ってる暇はないぞ。"},
   {t:"say",who:"oni",text:"最後にひとつ。相手の顔をよく見ろ。言葉より先に、表情が本音を語る。"},
-  {t:"say",who:"narr",text:"午後2時。応接室のドアが開いた――"},
+  {t:"say",who:"narr",text:"午後2時。応接間に通されて待っていると、ドアが開いた――"},
 
   {t:"bg",v:"room"},{t:"cp",id:"s1"},
   {t:"char",v:true,face:"stern",pose:"crossed"},
   {t:"say",who:T,text:"……どうも。高橋です。",face:"stern"},
-  {t:"say",who:T,text:"信金の佐々木さんの紹介だから時間はとったけどね。うちは今、特に困ってないよ。",face:"doubt"},
-  {t:"say",who:"narr",text:"高橋部長は腕を組んだまま、ちらりと腕時計に目をやった。"},
+  {t:"say",who:T,text:"相続の手続きで世話になった、司法書士の先生の紹介だから時間はとったけどね。売ると決めたわけじゃないよ。",face:"doubt"},
+  {t:"say",who:"narr",text:"高橋さんは腕を組んだまま、ちらりと腕時計に目をやった。"},
   {t:"say",who:"inner",text:"腕組みに、時計……。最初のひと言が勝負だ。",face:"stern"},
   {t:"choice",prompt:"最初のひと言は？",observe:"腕を組み、時計を気にしている。腕組みは「防御」、時計は「早く終わらせたい」のサインだ。まずは安心させたい。",options:[
-    {label:"「入口の『創業60周年』の看板、拝見しました」",line:"入口の「創業60周年」の看板、拝見しました。長くこの地で続いている工場なんですね。",tech:["rapport"],kind:"neutral",wall:-5,then:[
-      {t:"say",who:T,text:"ああ、先代からだからね。",face:"soft"},
+    {label:"「壁のお写真、もしかしてご実家ですか」",line:"壁のお写真、もしかしてご実家ですか。いいお家ですね。",tech:["rapport"],kind:"neutral",wall:-5,then:[
+      {t:"say",who:T,text:"ああ、親父が建てた家だ。",face:"soft"},
       {t:"say",who:T,text:"……で？本題は？",face:"stern"},
       {t:"say",who:"inner",text:"一瞬ゆるんだけど、すぐ戻った。この人に長い雑談は逆効果だ。"}]},
-    {label:"「30分の進め方を、先にご相談させてください」",line:"30分と伺っています。最初に工場の状況を伺って、最後に「次に進む価値があるか」を部長にご判断いただく。そんな流れでいかがでしょう。",tech:["agenda"],kind:"good",wall:-20,then:[
+    {label:"「30分の進め方を、先にご相談させてください」",line:"30分と伺っています。最初にご実家の状況を伺って、最後に「次に進む価値があるか」を高橋さんにご判断いただく。そんな流れでいかがでしょう。",tech:["agenda"],kind:"good",wall:-20,then:[
       {t:"say",who:T,text:"……ほう。",face:"surprise"},
       {t:"say",who:T,text:"段取りがわかってるなら話は早い。いいよ、それで。",face:"soft",pose:"table"}]},
-    {label:"「さっそく弊社のプランをご説明します！」",line:"ありがとうございます！さっそくですが、弊社の燃料転換プランをご説明させてください！",tech:["reactance"],kind:"bad",trust:-1,then:[
-      {t:"say",who:T,text:"……パンフレットなら、前にも何枚ももらったよ。",face:"annoyed"},
+    {label:"「さっそく弊社の売却プランをご説明します！」",line:"ありがとうございます！さっそくですが、弊社の売却プランをご説明させてください！",tech:["reactance"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"……不動産屋のチラシなら、毎週ポストに入ってるよ。",face:"annoyed"},
       {t:"say",who:"inner",text:"しまった……。聞く気のない相手に、いきなり売り込んでしまった。"}]}
   ]},
 
   {t:"cp",id:"s2"},
   {t:"say",who:T,text:"先に言っとくけどね。",face:"stern",pose:"crossed"},
-  {t:"say",who:T,text:"前に来たガス屋はな、「年間1000万浮きます」と言ったんだ！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"},
-  {t:"say",who:T,text:"それを信じて社長に上げたら、後から配管工事で何千万だ！俺の面目は丸つぶれだよ！",face:"angry"},
+  {t:"say",who:T,text:"前に頼んだ不動産屋はな、「2,800万で売れます」と言ったんだ！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"},
+  {t:"say",who:T,text:"それを信じて任せたら、半年売れずに値下げ、値下げだ！親戚にまで「まだ売れないのか」と言われて、俺の面目は丸つぶれだよ！",face:"angry"},
   {t:"note",id:"F4"},
   {t:"say",who:"inner",text:"まずい……完全に火がついた。ここで返しを間違えたら、終わりだ。"},
   {t:"choice",prompt:"どう返す？",timer:15,observe:"声を荒げているが「面目は丸つぶれ」と言った。怒りの芯は、金額より「面子」にあるのかもしれない。",options:[
-    {label:"「弊社は、そういう会社とは違います！」",line:"弊社は、そのような会社とは違います！シミュレーションの精度には自信があります！",tech:["competitor_bash"],kind:"bad",trust:-1,then:[
+    {label:"「弊社は、そういう会社とは違います！」",line:"弊社は、そのような会社とは違います！査定の精度には自信があります！",tech:["competitor_bash"],kind:"bad",trust:-1,then:[
       {t:"say",who:T,text:"みんな最初はそう言うんだよ！",face:"angry",fx:["shake"],sfx:"impact"},
       {t:"say",who:T,text:"……まあいい。続けて。",face:"annoyed",pose:"crossed"}]},
-    {label:"「今は補助金で、工事費を抑えられます」",line:"今は補助金がありますので、工事費の負担はかなり抑えられますよ。",tech:["premature_rebuttal"],kind:"bad",trust:-1,then:[
-      {t:"say",who:T,text:"補助金の話も前に聞いたよ。こっちの話を聞く前に反論かい。",face:"annoyed",pose:"crossed"}]},
-    {label:"「一番引っかかったのは、どこでしたか」",line:"それは……一番悔しいパターンですね。部長が一番引っかかったのは、金額でしょうか。それとも、最初の話と違ったことでしょうか。",tech:["labeling","open_q"],kind:"good",wall:-25,then:[
+    {label:"「今なら、売れなければ弊社が買い取る保証も」",line:"今なら、一定の期間で売れなければ、弊社が買い取る保証もございます。ご安心ください。",tech:["premature_rebuttal"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"買い取りの話も前に聞いたよ。こっちの話を聞く前に反論かい。",face:"annoyed",pose:"crossed"}]},
+    {label:"「一番引っかかったのは、どこでしたか」",line:"それは……一番悔しいパターンですね。高橋さんが一番引っかかったのは、金額でしょうか。それとも、最初の話と違ったことでしょうか。",tech:["labeling","open_q"],kind:"good",wall:-25,then:[
       {t:"say",who:T,text:"……！",face:"surprise",fx:["zoom"],sfx:"hit"},
       {t:"say",who:T,text:"……後者だよ。",face:"sad",pose:"table"},
-      {t:"say",who:T,text:"設備のことは、社長から全部任されてる。だから俺が推した話がひっくり返ったのが、何より堪えたんだ。",face:"sad"},
+      {t:"say",who:T,text:"実家のことは、妹から全部任されてる。だから、俺が決めた話がひっくり返ったのが、何より堪えたんだ。",face:"sad"},
       {t:"note",id:"F6"},
-      {t:"say",who:"inner",text:"決めているのは社長じゃない。この人の「推薦」なんだ……！"}]}
+      {t:"say",who:"inner",text:"妹さんは、この人に任せている。決めるのは、この人なんだ……！"}]}
   ],timeout:{line:"……。",tech:["silence"],kind:"bad",trust:-1,then:[
     {t:"say",who:T,text:"……黙ってちゃ、わからんよ。",face:"annoyed",pose:"crossed"}]}},
 
@@ -779,13 +802,13 @@ const SCRIPT = [
   {t:"cp",id:"s4"},
   {t:"banner",kind:"rush",title:"反論ラッシュ",text:"制限時間内に、すべての反論を受け止めろ"},
   {t:"rush",v:true},
-  {t:"say",who:T,text:"燃料を替えるには工事がいる。工事となれば、ラインを止める。",face:"stern"},
-  {t:"say",who:T,text:"うちは食品工場だ！ラインを止めるなんて、あり得ないんだよ！",face:"angry",pose:"slam",fx:["shake"],sfx:"impact"},
+  {t:"say",who:T,text:"売るとなりゃ、家を空っぽにせにゃならん。",face:"stern"},
+  {t:"say",who:T,text:"おふくろの物が、まだ全部そのまま残ってるんだ！それを捨てろってのか！",face:"angry",pose:"slam",fx:["shake"],sfx:"impact"},
   {t:"note",id:"F3"},
   {t:"call",fn:rush1},
-  {t:"say",who:T,text:"……だがな。どうせ最後は数字を盛るんだろ。で、いくら浮く？言ってみろ。",face:"smirk",pose:"crossed",fx:["glint"],sfx:"glint"},
+  {t:"say",who:T,text:"……だがな。どうせ最後は、高い数字で釣るんだろ。で、うちはいくらで売れる？言ってみろ。",face:"smirk",pose:"crossed",fx:["glint"],sfx:"glint"},
   {t:"call",fn:rush2},
-  {t:"say",who:T,text:"……仮にだ。仮に話を進めるとしても、決めるのは社長だぞ。俺に言っても、しょうがない。",face:"doubt"},
+  {t:"say",who:T,text:"……仮にだ。仮に話を進めるとしても、実家は妹と共有の名義だ。俺の一存じゃ決められん。",face:"doubt"},
   {t:"call",fn:rush3},
   {t:"rush",v:false},
   {t:"call",fn:afterRush},
@@ -794,9 +817,9 @@ const SCRIPT = [
   {t:"say",who:T,text:"……で。俺は何をすればいい。",face:"neutral",pose:"table"},
   {t:"choice",prompt:"最後の一手",observe:"腕組みが解け、身を乗り出している。いまなら「小さな依頼」は通りそうだ。欲張りは禁物。",options:[
     {label:"「では、資料をお送りしますので、ご検討ください」",line:"では、本日の資料をお送りしますので、ご検討いただけましたらご連絡ください。",tech:["passive_close"],kind:"bad",trust:0,final:"C",then:[]},
-    {label:"「本日、基本合意書にサインをいただけませんか」",line:"ありがとうございます！では本日、基本合意書にサインをいただけないでしょうか。",tech:["premature_ask"],kind:"bad",trust:-2,final:"B",then:[
-      {t:"say",who:T,text:"調子に乗るなよ！初対面でサインだと！？",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"}]},
-    {label:"「ボイラー室を30分だけ。火曜と木曜、どちらが？」",line:"まずは小さく始めさせてください。ボイラー室を30分拝見できれば十分です。来週の火曜と木曜、どちらがご都合よいですか。",tech:["fitd","double_bind"],kind:"good",final:"A",then:[]}
+    {label:"「本日、媒介契約にサインをいただけませんか」",line:"ありがとうございます！では本日、専任媒介契約にサインをいただけないでしょうか。",tech:["premature_ask"],kind:"bad",trust:-2,final:"B",then:[
+      {t:"say",who:T,text:"調子に乗るなよ！家も見ずに契約だと！？",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"}]},
+    {label:"「ご実家を30分だけ。火曜と木曜、どちらが？」",line:"まずは小さく始めさせてください。ご実家を30分拝見できれば十分です。来週の火曜と木曜、どちらがご都合よいですか。",tech:["fitd","double_bind"],kind:"good",final:"A",then:[]}
   ]}
 ];
 
@@ -855,7 +878,7 @@ const titleScreen = $("#titleScreen"), endScreen = $("#endScreen"), overlay = $(
 
 /* 腕と集中線を生成 */
 (() => {
-  const OUT = "#3B2E28", SLV = "#8E9CA5", SKIN = "#E8C29E";
+  const OUT = "#3B2E28", SLV = "#9A7B5D", SKIN = "#E8C29E";
   const tube = (d, w) => `<path d="${d}" stroke="${OUT}" stroke-width="${w + 5}" fill="none" stroke-linecap="round"/><path d="${d}" stroke="${SLV}" stroke-width="${w}" fill="none" stroke-linecap="round"/>`;
   const hand = (cx, cy, rx, ry, rot = 0) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" transform="rotate(${rot} ${cx} ${cy})" fill="${SKIN}" stroke="${OUT}" stroke-width="2"/>`;
   const fist = (x, y) => `<rect x="${x - 16}" y="${y - 12}" width="32" height="24" rx="9" fill="${SKIN}" stroke="${OUT}" stroke-width="2"/><path d="M${x - 8} ${y - 12} v7 M${x} ${y - 12} v7 M${x + 8} ${y - 12} v7" stroke="${OUT}" stroke-width="1.4"/>`;
@@ -1123,7 +1146,7 @@ async function breakWall(my){
   fx(["flash"]); if (!reduceMotion) retrigger(stage, "shake");
   SFX.brk();
   setFace("shock");
-  await banner({kind:"break", title:"心の壁が崩れた！", text:"高橋部長が、本気で話を聞き始めた"}, my);
+  await banner({kind:"break", title:"心の壁が崩れた！", text:"高橋さんが、本気で話を聞き始めた"}, my);
 }
 
 /* ===================== 選択肢 ===================== */
@@ -1249,9 +1272,9 @@ function endGame(v){
   dock.hidden = true;
   if (v === "gameover" || v === "fail") {
     const ng = DEX[G.lastNG] || DEX.silence;
-    endScreen.append(el("p", "es-chap", "第1話　鉄壁の工場長"));
+    endScreen.append(el("p", "es-chap", "第1話　鉄壁の売り主"));
     endScreen.append(el("p", "es-over", "商談決裂"));
-    endScreen.append(el("p", "es-sub", v === "gameover" ? "信頼を失い、応接室を追い出された……" : "最後の一手で、高橋部長を怒らせてしまった……"));
+    endScreen.append(el("p", "es-sub", v === "gameover" ? "信頼を失い、高橋さんの家を追い出された……" : "最後の一手で、高橋さんを怒らせてしまった……"));
     const adv = el("div", "advice");
     adv.append(el("b", null, "鬼塚先輩"));
     adv.append(el("p", null, `「${ng.name}」はまずかったな。${ng.tip}`));
@@ -1263,12 +1286,12 @@ function endGame(v){
     const rank = v === "success" ? (G.trust >= 5 ? "S" : G.trust >= 3 ? "A" : "B") : "C";
     const best = store.get("urayomi2.best", null);
     if (!best || RANK_ORDER.indexOf(rank) < RANK_ORDER.indexOf(best)) store.set("urayomi2.best", rank);
-    endScreen.append(el("p", "es-chap", "第1話　鉄壁の工場長"));
+    endScreen.append(el("p", "es-chap", "第1話　鉄壁の売り主"));
     const row = el("div", "es-rankrow");
     row.append(el("span", "es-rank r-" + rank, rank));
     const col = el("div");
     col.append(el("p", "es-result", v === "success" ? "ミッション達成" : "保留"));
-    col.append(el("p", "es-sub", v === "success" ? "現地調査の約束を取りつけた" : "次の約束は取れなかった"));
+    col.append(el("p", "es-sub", v === "success" ? "訪問査定の約束を取りつけた" : "次の約束は取れなかった"));
     row.append(col);
     endScreen.append(row);
     const ul = el("ul", "es-stats");
@@ -1326,7 +1349,7 @@ function openDex(){
 }
 function openNotes(){
   openSheet(`手帳　${G ? G.notes.length : 0}／6`, body => {
-    body.append(el("p", "lead", "高橋部長から聞き出した本音です。選択肢に「手帳」と付いたものは、ここに書いた情報を使えます。"));
+    body.append(el("p", "lead", "高橋さんから聞き出した本音です。選択肢に「手帳」と付いたものは、ここに書いた情報を使えます。"));
     Object.keys(NOTES).forEach(id => {
       const got = G && G.notes.includes(id);
       const c = el("article", "card" + (got ? "" : " locked"));
