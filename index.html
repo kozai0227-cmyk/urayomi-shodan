@@ -52,6 +52,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hud-clock{display:flex;align-items:baseline;gap:.35rem;white-space:nowrap;padding-left:.35rem;border-left:1px solid #2A3641}
 .hud-clock b{font-variant-numeric:tabular-nums;font-size:1rem}
 .hud-clock span{font-size:.6875rem;color:#9FB0BC}
+.hud-clock.over b,.hud-clock.over span{color:#FF8F7E}
 .hud-btns{display:flex;gap:.3rem;margin-left:auto}
 .hbtn{font-size:.75rem;border:1px solid #33424F;background:#16202A;border-radius:999px;padding:.2rem .6rem;line-height:1.5;white-space:nowrap}
 .hbtn b{color:var(--amber);font-variant-numeric:tabular-nums}
@@ -248,7 +249,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   </header>
 
   <div class="stage" id="stage">
-    <svg id="scene" viewBox="0 0 360 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="応接間で向かい合う高橋さん" data-bg="room" data-pose="crossed" class="nochar">
+    <svg id="scene" viewBox="0 0 360 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="居間で向かい合う高橋さん" data-bg="room" data-pose="crossed" class="nochar">
       <defs>
         <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A7C9DE"/><stop offset="1" stop-color="#E6EEF0"/></linearGradient>
         <linearGradient id="gSky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FBBD8"/><stop offset=".7" stop-color="#DCE9EF"/></linearGradient>
@@ -297,14 +298,30 @@ button{font:inherit;color:inherit;cursor:pointer}
             <text x="35" y="13" font-size="11" font-weight="700" text-anchor="middle" fill="#fff" font-family="sans-serif">11月</text>
             <path d="M7 27 H64 M7 38 H64 M7 49 H64 M7 60 H64 M7 71 H64" stroke="#A39886" stroke-width="5" stroke-dasharray="5 3.5"/>
           </g>
+          <!-- 仏壇（台の上） -->
+          <g transform="translate(300 192)">
+            <rect x="-6" y="76" width="64" height="62" fill="#6B4A34" stroke="#3B2A1E" stroke-width="1.5"/>
+            <path d="M-6 96 H58" stroke="#5A3D2A" stroke-width="2"/>
+            <circle cx="26" cy="112" r="2.5" fill="#C9A54A"/>
+            <path d="M-3 0 H55 L52 -6 H0 Z" fill="#2E1F16"/>
+            <rect width="52" height="76" fill="#3E2A1E" stroke="#22160F" stroke-width="2"/>
+            <rect x="6" y="7" width="40" height="52" fill="#7A5A28"/>
+            <rect x="9" y="10" width="34" height="46" fill="#C9A54A" opacity=".45"/>
+            <rect x="19" y="12" width="14" height="16" fill="#F2EEE4" stroke="#22160F" stroke-width="1"/>
+            <ellipse cx="26" cy="18" rx="3.4" ry="3.8" fill="#8E8A82"/>
+            <path d="M20.5 28 Q26 21 31.5 28 Z" fill="#8E8A82"/>
+            <path d="M26 38 V31" stroke="#B9B2A4" stroke-width="1"/>
+            <rect x="22" y="38" width="8" height="6" fill="#6B5A44"/>
+            <rect x="9" y="44" width="34" height="3" fill="#D9C27A"/>
+            <rect x="6" y="62" width="40" height="10" fill="#2E1F16"/>
+          </g>
           <!-- 片付け途中の段ボール -->
           <g stroke="#7A5A34" stroke-width="1.5">
-            <rect x="296" y="268" width="66" height="56" fill="#C9A26B"/>
-            <rect x="304" y="226" width="52" height="44" fill="#D2AE78"/>
             <rect x="-6" y="270" width="58" height="54" fill="#C9A26B"/>
+            <rect x="2" y="232" width="46" height="40" fill="#D2AE78"/>
           </g>
-          <path d="M329 268 V324 M330 226 V270 M23 270 V324" stroke="#B08850" stroke-width="5"/>
-          <g font-family="sans-serif" font-size="9" font-weight="700" fill="#4A3820" text-anchor="middle"><text x="312" y="300">衣類</text><text x="343" y="252">本</text><text x="38" y="300">食器</text></g>
+          <path d="M23 270 V324 M25 232 V272" stroke="#B08850" stroke-width="5"/>
+          <g font-family="sans-serif" font-size="9" font-weight="700" fill="#4A3820" text-anchor="middle"><text x="38" y="300">食器</text><text x="38" y="256">衣類</text></g>
           <rect x="54" y="222" width="252" height="150" rx="22" fill="#4C5849" stroke="#2C342B" stroke-width="3"/>
           <path d="M68 232 Q180 222 292 232" stroke="#647160" stroke-width="5" fill="none" stroke-linecap="round"/>
         </g>
@@ -570,8 +587,9 @@ button{font:inherit;color:inherit;cursor:pointer}
     <h1 class="logo">ウラ読み<br>商談</h1>
     <p class="tagline">表情を読め。本音を引き出せ。</p>
     <div class="menu">
-      <button class="mbtn primary" type="button" id="startBtn"><span class="ep">第1話</span><span class="nm">受話器の向こう</span><span class="st" id="bestRank">はじめる</span></button>
-      <button class="mbtn" type="button" disabled><span class="ep">第2話</span><span class="nm">はじめての訪問</span><span class="st">準備中</span></button>
+      <button class="mbtn primary" type="button" data-ch="ch1"><span class="ep">第1話</span><span class="nm">受話器の向こう</span><span class="st">はじめる</span></button>
+      <button class="mbtn" type="button" data-ch="ch2"><span class="ep">第2話</span><span class="nm">はじめての訪問</span><span class="st">はじめる</span></button>
+      <button class="mbtn" type="button" disabled><span class="ep">第3話</span><span class="nm">数字の重み</span><span class="st">準備中</span></button>
       <div class="subrow">
         <button class="hbtn" type="button" id="titleDex">テクニック図鑑</button>
         <button class="hbtn" type="button" id="titleSnd" aria-pressed="false">効果音 オフ</button>
@@ -594,17 +612,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* ===================== データ ===================== */
 const T = "takahashi";
-const NOTES = {
-  F1: "実家は築50年近い木造。母がひとりで住んでいた",
-  F2: "毎週末、片道40分かけて片付けに通っている",
-  F3: "母の家を手放すことに、まだ気持ちが追いつかない",
-  F4: "相続のあと、不動産屋の手紙が山ほど届いている",
-  F5: "来月の一周忌で、東京の妹と家のことを話すつもり",
-  F6: "実家のことは、妹から全部任されている"
-};
-
 const DEX = {
   voice:{name:"声のサインを読む（パラ言語）",good:true,desc:"電話では表情が見えない。そのぶん、声の高さ・速さ・間・ため息に気持ちが表れる。言葉と声の調子が食い違うときは、相手がまだ迷っていることがある。",tip:"話の中身だけでなく、言い方と間に耳を澄ます。"},
+  nonverbal:{name:"非言語のサインを読む",good:true,desc:"本音は言葉より先に、表情やしぐさに出ることが多い。腕組みは警戒、時計を見るのは焦り、身を乗り出すのは関心のサインになりやすい。",tip:"ひとつのしぐさで決めつけず、変化と組み合わせで読む。"},
+  agenda:{name:"アジェンダ設定",good:true,desc:"冒頭で進め方とゴールを示し、相手の同意をもらう。先が見えない不安が消え、相手は「聞く姿勢」になる。",tip:"決めつけず「この流れでいかがでしょう」と許可を取る。"},
+  rapport:{name:"ラポール形成",good:true,desc:"共通点や関心を示して、心の距離を縮める。人は自分に関心を向けてくれる相手に好意を返す。",tip:"忙しい相手には短く切り上げて、本題につなぐ。"},
   byaf:{name:"BYAF（断る自由を伝える）",good:true,desc:"お願いのあとに「断っていただいても構いません」と添えると、かえって応じてもらいやすくなる。決める自由が自分にあると感じると、反発がやわらぐ。",tip:"名乗りと用件を先に。形だけで言うと見透かされる。"},
   pacing:{name:"ペーシング",good:true,desc:"相手の声の大きさ、話す速さ、気分に合わせて話す。人は自分と調子の合う相手に安心しやすい。",tip:"相手が沈んでいるときに明るすぎる声は、それだけで浮く。"},
   labeling:{name:"ラベリング",good:true,desc:"相手の感情を言葉にして返す（「おひとりで大変でしょう」）。わかってもらえたと感じると、警戒や怒りがやわらぐ。交渉術の定番。",tip:"決めつけず、相手の言葉をそのまま借りる。"},
@@ -615,12 +627,15 @@ const DEX = {
   personalize:{name:"自己関連付け効果",good:true,desc:"人は「自分に関係する話」を特に重く受け止める。相手から聞いた事実で提案を組み立てると、「自分のための提案」になる。",tip:"ヒアリングで聞いたことを、相手の言葉のまま提案に使う。"},
   social_proof:{name:"社会的証明",good:true,desc:"迷ったとき、人は「自分に似た誰か」の行動を手本にする。境遇が近い人の例ほど効く。",tip:"事実にもとづく話だけを使う。盛った例は、ばれたときに信頼を失う。"},
   two_sided:{name:"両面提示",good:true,desc:"良い面だけでなく、限界やリスクも正直に伝える。疑い深い相手ほど、一方的なアピールより信頼する。",tip:"「合わなければ合わないと言う」は強い誠実さのサイン。"},
+  inoculation:{name:"予防接種理論",good:true,desc:"相手がこの先出会う誘いや反論を先に伝え、それへの考え方も添えておく。前もって知っていると、人はそれに流されにくくなる。",tip:"相手を守るために使う。他社の悪口になったら逆効果。"},
   fitd:{name:"フット・イン・ザ・ドア",good:true,desc:"小さな依頼に応じると、人は次の依頼も受け入れやすくなる（一貫性の原理）。最初の一歩は小さく。",tip:"最初の依頼は、相手が断る理由のない大きさにする。"},
   double_bind:{name:"ダブルバインド",good:true,desc:"「会うか、会わないか」ではなく「土曜か、日曜か」を聞く。決断の負担が下がる。",tip:"信頼がない段階で使うと、誘導だと見透かされる。"},
   empty_permission:{name:"用件のない許可取り",good:false,desc:"名乗りも用件もないまま「今よろしいですか」と聞くと、相手は「忙しい」のひと言で電話を終えられる。",tip:"名乗りと用件をひと言で伝え、時間を区切ってから許可を取れ。"},
   reactance:{name:"心理的リアクタンス",good:false,desc:"押しつけられると、人は反発したくなる。聞く準備のない相手への売り込みは、内容が良くても逆効果。",tip:"説明の前に、相手が話を聞く理由をつくれ。"},
   no_empathy:{name:"感情の置き去り",good:false,desc:"相手が気持ちを打ち明けたのに用件だけを進めると、「この人は自分を見ていない」と受け取られる。",tip:"用件の前に、まず相手の気持ちを受け止めるひと言を。"},
   script_reading:{name:"決まり文句の棒読み",good:false,desc:"台本どおりの決まり文句は、電話越しでもすぐに伝わる。相手は「大勢にかけている電話の一本」だと感じて、心を閉じる。",tip:"台本は流れの目安にとどめ、相手の言葉を受けて自分の言葉で返せ。"},
+  premature_rebuttal:{name:"早すぎる反論",good:false,desc:"気持ちや懸念を聞ききる前に結論や解決策を出すと、「話を聞いていない」と受け取られる。",tip:"反論の前に、まず相手の気持ちの中身を確かめろ。"},
+  empty_assurance:{name:"根拠のない保証",good:false,desc:"相手の状況を知らずに言う「大丈夫です」は、軽く聞こえる。",tip:"保証の代わりに、具体的な方法か根拠を示せ。"},
   premature_ask:{name:"段階を飛ばした依頼",good:false,desc:"信頼ができる前の大きな依頼は、警戒を強めるだけ。",tip:"依頼は、関係の深さに見合った大きさから始めろ。"},
   fear_appeal:{name:"不安のあおり",good:false,desc:"「今売らないと損」と脅すように迫ると、相手は話そのものを避けたくなる。不安だけを強めて具体的な手立てを示さないと、人は身構える。",tip:"損の話をするなら、根拠と具体的な手立てをセットで。"},
   evasion:{name:"回答の回避",good:false,desc:"聞かれたことにはっきり答えないと、自信がないと受け取られる。",tip:"答えられない理由と、答えるための条件をセットで伝えろ。"},
@@ -628,6 +643,7 @@ const DEX = {
   anchoring:{name:"根拠のないアンカリング",good:false,desc:"最初に出した数字は強く記憶に残る。根拠のない大きな数字は、あとで必ず不信に変わる。",tip:"数字を出すなら、根拠と前提をセットにしろ。"},
   bypass:{name:"頭越し",good:false,desc:"目の前の相手を飛ばして、家族や決裁者に直接話を持っていくと、味方になりうる人を敵に回す。",tip:"ほかの人への説明は、目の前の相手に担ってもらえ。"},
   passive_close:{name:"主導権の放棄",good:false,desc:"「ご検討ください」「何かあればご連絡ください」で終わると、次の行動が誰にも決まらない。",tip:"最後は自分から、具体的な日時と次の一歩を提案しろ。"},
+  overtime:{name:"約束の時間の超過",good:false,desc:"「15分だけ」と約束して長居すると、ほかの約束も守らない人だと思われる。小さな約束を守ることが、信頼の土台になる。",tip:"時間が来たら、自分から切り上げて次の約束につなげろ。"},
   silence:{name:"長すぎる沈黙",good:false,desc:"想定外の反応に固まると、自信のなさが伝わる。電話では、数秒の沈黙でも長く感じられる。",tip:"完璧な答えより、まず受け止めるひと言を返せ。"}
 };
 
@@ -655,7 +671,28 @@ const PLATES = {
 };
 
 /* ===================== シナリオ ===================== */
-const CHAPTER = "第1話　受話器の向こう";
+/* 章ごとのデータは CH1, CH2 …… にまとめ、CHAPTERS に登録する。遊んでいる章は CH */
+
+function askMenu(){
+  const rest = CH.questions.filter(q => !G.asked.includes(q.qid));
+  return [{t:"choice",prompt:`何を聞く？（あと${G.qLeft}つ）`,observe:CH.askObserve,
+    options:rest.map(q => ({...q,after:[{t:"call",fn:afterAsk}]}))}];
+}
+function afterAsk(){
+  if (G.qLeft > 0) return askMenu();
+  return [{t:"say",who:"sys",text:"ヒアリング終了。"}];
+}
+
+/* ---------- 第1話　受話器の向こう（テレアポ） ---------- */
+const CH1 = (() => {
+const NOTES = {
+  F1: "実家は築50年近い木造。母がひとりで住んでいた",
+  F2: "毎週末、片道40分かけて片付けに通っている",
+  F3: "母の家を手放すことに、まだ気持ちが追いつかない",
+  F4: "相続のあと、不動産屋の手紙が山ほど届いている",
+  F5: "来月の一周忌で、東京の妹と家のことを話すつもり",
+  F6: "実家のことは、妹から全部任されている"
+};
 
 const TIMEOUT = {line:"……。",tech:["silence"],kind:"bad",trust:-1,then:[
   {t:"say",who:T,text:"……もしもし？聞いてるのか。",face:"annoyed"}
@@ -692,17 +729,6 @@ const QUESTIONS = [
     {t:"note",id:"F5"},
     {t:"say",who:"inner",text:"来月の一周忌で、妹さんと……。これは覚えておこう。"}]}
 ];
-
-function askMenu(){
-  const rest = QUESTIONS.filter(q => !G.asked.includes(q.qid));
-  return [{t:"choice",prompt:`何を聞く？（あと${G.qLeft}つ）`,
-    observe:"受話器の向こうで、また段ボールの音。手を動かしながら聞いている。「困りごと」や「これから」に触れられれば、壁は崩れそうだ。",
-    options:rest.map(q => ({...q,after:[{t:"call",fn:afterAsk}]}))}];
-}
-function afterAsk(){
-  if (G.qLeft > 0) return askMenu();
-  return [{t:"say",who:"sys",text:"ヒアリング終了。"}];
-}
 
 function rush1(){
   const opts = [
@@ -902,6 +928,281 @@ const SCRIPT = [
   ]}
 ];
 
+return {
+  ep:"第1話", name:"受話器の向こう", notes:NOTES, questions:QUESTIONS, script:SCRIPT, finale, timeout:TIMEOUT,
+  askObserve:"受話器の向こうで、また段ボールの音。手を動かしながら聞いている。「困りごと」や「これから」に触れられれば、壁は崩れそうだ。",
+  gameover:() => hangUp("もういい。切るぞ。", "gameover"),
+  time:45, badExtra:15, clockHour:14, bestKey:"urayomi2.best", next:"ch2",
+  texts:{over:"電話を切られた", overSub:"信頼を失い、途中で電話を切られてしまった……", failSub:"最後の一手で、高橋さんを怒らせてしまった……",
+    success:"会う約束を取りつけた", hold:"会う約束は取れなかった", timeLabel:"通話時間", note:"本音は1回の電話では全部集まりません。ヒアリングで別の質問を選ぶと、新しい攻め手が見つかります。"}
+};
+})();
+
+/* ---------- 第2話　はじめての訪問（実家での初回面談） ---------- */
+const CH2 = (() => {
+const NOTES = {
+  F1: "2階の和室に、雨漏りの跡がある",
+  F2: "誰も住んでいないのに、固定資産税を妹と半分ずつ払っている",
+  F3: "家の中を他人に見せるのは、まだ抵抗がある",
+  F4: "大手からも「何社か査定を取ろう」と勧められている",
+  F5: "2階の母の部屋だけは、まだ誰にも見せたくない",
+  F6: "母は「この家に、また誰かに住んでほしい」と言っていた"
+};
+const LIMIT = 15 * 60;
+
+const TIMEOUT = {line:"……。",tech:["silence"],kind:"bad",trust:-1,then:[
+  {t:"say",who:T,text:"……どうした。黙ってちゃ、わからんよ。",face:"annoyed",pose:"crossed"}
+]};
+
+/* 追い返される（信頼ゼロ、または最後の一手で怒らせたとき） */
+function kickOut(line, v){
+  return [
+    {t:"say",who:T,text:line,face:"angry",pose:"slam",fx:["shake"],sfx:"impact"},
+    {t:"char",v:false},{t:"bg",v:"gate"},
+    {t:"say",who:"narr",text:"玄関の引き戸が、ぴしゃりと閉まった。"},
+    {t:"end",v}
+  ];
+}
+
+const QUESTIONS = [
+  {qid:"q1",label:"「お家で、気になっている傷みはありますか」",line:"差し支えなければ、お家で気になっている傷みはありますか。",tech:["spin_s"],kind:"good",wall:-5,time:120,then:[
+    {t:"say",who:T,text:"……2階の和室に、雨漏りの跡がある。去年の台風のあとからだ。",face:"think"},
+    {t:"say",who:T,text:"直そうと思いながら、そのままだ。",face:"sad"},
+    {t:"note",id:"F1"},
+    {t:"say",who:"inner",text:"雨漏り……。査定のとき、正直に扱わないといけない点だ。"}]},
+  {qid:"q2",label:"「この家を持っていて、ご負担なことはありますか」",line:"この家を持ち続けるうえで、ご負担になっていることはありませんか。",tech:["spin_p"],kind:"good",wall:-15,time:120,then:[
+    {t:"say",who:T,text:"……あるよ。",face:"sad",pose:"table"},
+    {t:"say",who:T,text:"固定資産税が年に12万。妹と半分ずつ払ってる。誰も住んでないのにな。",face:"sad"},
+    {t:"say",who:T,text:"毎週末の片付けで、ガソリン代もばかにならん。",face:"annoyed"},
+    {t:"note",id:"F2"}]},
+  {qid:"q4",label:"「権利証や測量図は、どちらにありますか」",line:"権利証や測量図など、書類はどちらに保管されていますか。査定のときに必要になりますので。",tech:["premature_ask"],kind:"bad",trust:-1,wall:10,time:180,then:[
+    {t:"say",who:T,text:"まだ売るとも言ってないのに、もう書類の話か。",face:"angry",fx:["shake"],sfx:"impact"},
+    {t:"say",who:T,text:"そういうところが、不動産屋は信用できんのだ。",face:"annoyed",pose:"crossed"}]},
+  {qid:"q3",label:"「お家の中で、大事にされている場所はありますか」",line:"お家の中で、高橋さんが大事にされている場所はありますか。",tech:["open_q"],kind:"good",wall:-5,time:120,then:[
+    {t:"say",who:T,text:"……2階の、おふくろの部屋だな。",face:"think"},
+    {t:"say",who:T,text:"あそこだけは、まだ手をつけてない。……誰にも見せる気になれん。",face:"sad"},
+    {t:"note",id:"F5"},
+    {t:"say",who:"inner",text:"お母様の部屋……。そこには、無理に踏み込まないほうがいい。"}]}
+];
+
+function rush1(){
+  const opts = [
+    {label:"「散らかっていても平気です。慣れてますから」",line:"散らかっていても平気です！こういうお宅には慣れてますから。",tech:["no_empathy"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"あんたが慣れてても、こっちは慣れてないんだよ！",face:"angry",fx:["shake"],sfx:"impact"}]}
+  ];
+  if (G.notes.includes("F5")) opts.push(
+    {badge:"手帳",label:"「お母様のお部屋は、今回は拝見しなくて構いません」",line:"お母様のお部屋は、今回は拝見しなくて構いません。ほかのお部屋と外回りだけでも、査定は始められます。お母様のお部屋は、高橋さんのお気持ちの整理がついてからで十分です。",tech:["personalize"],kind:"good",wall:-30,then:[
+      {t:"say",who:T,text:"……あの部屋を、外していいのか……！？",face:"shock",fx:["flash","zoom"],sfx:"hit"},
+      {t:"say",who:T,text:"……それなら、まあ……。",face:"think",pose:"chin"}]});
+  opts.push(
+    {label:"「片付けの前に査定を受ける方は、多いんです」",line:"片付けの前に査定を受ける方は、多いんです。荷物があるままで問題ありません。見るのは柱や床、雨どいなど、家そのものですから。",tech:["social_proof"],kind:"good",wall:-15,then:[
+      {t:"say",who:T,text:"……荷物があるままで、か。",face:"think",pose:"chin"},
+      {t:"say",who:T,text:"まあ、それなら……。",face:"doubt"}]});
+  if (!G.notes.includes("F5")) opts.push(
+    {label:"「お部屋のことは、その、なんとか……」",line:"お部屋のことは、その……なんとかします。",tech:["evasion"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"「なんとか」って、何だ。",face:"annoyed"}]});
+  return [{t:"choice",prompt:"反論その1",timer:15,observe:"テーブルを叩いたが、言いながら一瞬、天井――2階のほうを見上げた。家全体より、どこか一か所が引っかかっているようだ。",options:opts}];
+}
+function rush2(){
+  const honest = G.notes.includes("F1")
+    ? {badge:"手帳",label:"「雨漏りの跡も、正直に査定に入れさせてください」",line:"正直に申し上げます。2階の雨漏りの跡は、査定額に響きます。ただ、傷みを隠したまま売ると、売ったあとで高橋さんが責任を問われることもあります。傷みも含めて正直にお出しするのが、高橋さんを守ることになります。",tech:["two_sided"],kind:"good",wall:-30,then:[
+        {t:"say",who:T,text:"……隠すと、こっちが責任を……？",face:"surprise",fx:["zoom"],sfx:"hit"},
+        {t:"say",who:T,text:"……そこまで考えてくれる不動産屋は、初めてだ。",face:"shock",pose:"table"}]}
+    : {label:"「傷みも含めて、正直にお伝えします」",line:"古いお家なので、傷みは必ずあります。良いところも悪いところも、正直にお伝えします。",tech:["two_sided"],kind:"good",wall:-15,then:[
+        {t:"say",who:T,text:"……正直に、ね。",face:"doubt"},
+        {t:"say",who:T,text:"まあ、口では何とでも言えるがな。",face:"stern",pose:"crossed"}]};
+  return [{t:"choice",prompt:"反論その2",timer:15,observe:"口元は笑っているが、目は笑っていない。きれいごとを言うか、試している。",options:[
+    {label:"「傷みなんて、査定にはほとんど響きません！」",line:"ご安心ください！傷みなんて、査定にはほとんど響きませんから！",tech:["empty_assurance"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"見てもいないのに、なんでわかる。",face:"annoyed",pose:"crossed"}]},
+    {label:"「他社より高い査定額を、お約束します！」",line:"ご安心ください。他社より高い査定額を、お約束します！",tech:["anchoring"],kind:"bad",trust:-2,then:[
+      {t:"say",who:T,text:"見る前から「高く出す」だと？",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"},
+      {t:"say",who:T,text:"そういう調子のいい話が、一番信用できん！",face:"angry"}]},
+    honest
+  ]}];
+}
+function rush3(){
+  return [{t:"choice",prompt:"反論その3",timer:15,observe:"答えを試すような顔だが、手紙の束を何度も見ている。本当に、どうすればいいのか迷っているのかもしれない。",options:[
+    {label:"「大手は担当がすぐ変わるので、やめたほうが」",line:"大手さんは担当がすぐに変わりますし、やめておいたほうがいいと思います。",tech:["competitor_bash"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"結局、よその悪口か。",face:"annoyed",pose:"crossed"}]},
+    {badge:"手帳",label:"「比べてください。ただ、高すぎる額には理由を」",line:"ぜひ、比べてください。ひとつだけ、先にお伝えしておきます。ほかの会社から、うちより高い査定額が出ることがあります。そのときは「なぜその金額なのか」と根拠を聞いてみてください。高い査定額で契約を取って、あとから値下げを勧める会社もあるので。",tech:["inoculation"],kind:"good",wall:-30,then:[
+      {t:"say",who:T,text:"……高い数字で釣って、あとで下げる……。",face:"surprise",fx:["zoom"],sfx:"hit"},
+      {t:"say",who:T,text:"……あんた、自分が不利になることまで言うんだな。",face:"grin",pose:"table"}]},
+    {label:"「では、ほかで決められたら、ご連絡ください」",line:"承知しました。では、ほかの会社で決められたら、ご連絡ください。",tech:["passive_close"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"……ずいぶん、あっさりしてるな。",face:"doubt",pose:"crossed"}]}
+  ]}];
+}
+function afterRush(){
+  if (G.broken) return [{t:"say",who:T,text:"……ふう。家の話をこんなにしたのは、おふくろが死んでから初めてだ。",face:"soft",pose:"table"}];
+  if (G.wall <= 30) return [{t:"say",who:"inner",text:"壁はほとんど崩れた。あと一押しだ……！",face:"think"}];
+  return [{t:"say",who:"inner",text:"まだ壁は厚い……。ここで欲張るのは危険だ。",face:"stern",pose:"crossed"}];
+}
+/* 約束の15分を過ぎていたら、信頼が減る */
+function timeCheck(){
+  if (G.seconds > LIMIT) return [
+    {t:"say",who:T,text:"……おい。約束の15分、もうとっくに過ぎてるぞ。",face:"annoyed",pose:"crossed"},
+    {t:"effect",o:{kind:"bad",tech:["overtime"],trust:-1,time:0}},
+    {t:"checkTrust"}
+  ];
+  return [{t:"say",who:"inner",text:"約束の15分まで、あと少し。ここで決める。"}];
+}
+
+function finale(key){
+  if (key === "A") {
+    if (G.wall <= 30) {
+      const onTime = !G.ng.includes("overtime");
+      return [
+        {t:"say",who:T,text:"……来週の土曜だ。10時。",face:"neutral",pose:"table"},
+        {t:"say",who:T,text:G.used.includes("personalize") ? "おふくろの部屋は……それまでに、考えとく。" : "散らかってるのは、勘弁しろよ。",face:"smile",fx:["flash"],sfx:"clear"},
+        {t:"say",who:T,text:G.notes.includes("F6") ? "それと――おふくろの言ってたこと、覚えといてくれ。「誰かに住んでほしい」ってな。" : onTime ? "それと――今日は時間どおりだったな。次も頼むぞ。" : "それと――次は、時間を守れよ。",face:"grin"},
+        {t:"banner",kind:"clear",title:"ミッション達成",text:"訪問査定の約束を取りつけた！"},
+        {t:"char",v:false},{t:"bg",v:"gate"},
+        {t:"say",who:"narr",text:"午前10時15分。車に戻る。"},
+        {t:"say",who:"oni",text:"どうだった。"},
+        {t:"say",who:"you",text:"……訪問査定、取れました。一周忌の前の土曜日です。"},
+        {t:"say",who:"oni",text:onTime ? "……やるじゃないか。しかも、ちゃんと15分で切り上げたな。" : "……やるじゃないか。時間は守れなかったようだがな。"},
+        {t:"say",who:"oni",text:"次は査定額だ。数字ひとつで、今日の信頼は簡単に崩れる。根拠のない数字だけは出すなよ。"},
+        {t:"end",v:"success"}
+      ];
+    }
+    return [
+      {t:"say",who:T,text:"……悪くない話だ。だが、家の中を見せるのは、もう少し考えさせてくれ。",face:"think",pose:"chin"},
+      {t:"say",who:T,text:"一周忌で妹と話してから、こっちから連絡する。",face:"stern",pose:"crossed"},
+      {t:"banner",kind:"hold",title:"保留",text:"訪問査定の約束は取れなかった……"},
+      {t:"char",v:false},{t:"bg",v:"gate"},
+      {t:"say",who:"oni",text:"会ってもらえただけ、前進だ。"},
+      {t:"say",who:"oni",text:"だが、心の壁が残っているうちに頼んだのが惜しかったな。本音をもっと引き出してから、最後の一手を打て。"},
+      {t:"end",v:"hold"}
+    ];
+  }
+  if (key === "B") {
+    if (G.trust <= 0) return [];
+    return kickOut("15分だけと言ったろ！今日はもう帰ってくれ。", "fail");
+  }
+  return [
+    {t:"say",who:T,text:"ああ。決まったらな。",face:"neutral"},
+    {t:"say",who:"narr",text:"高橋さんは、もう段ボールに手を伸ばしていた。"},
+    {t:"banner",kind:"hold",title:"保留",text:"訪問査定の約束は取れなかった……"},
+    {t:"char",v:false},{t:"bg",v:"gate"},
+    {t:"say",who:"oni",text:"「お気持ちが決まったらご連絡を」で、連絡をくれた客はいない。"},
+    {t:"say",who:"oni",text:"最後は自分から、次の一歩を決めにいけ。"},
+    {t:"end",v:"hold"}
+  ];
+}
+
+const SCRIPT = [
+  {t:"bg",v:"gate"},{t:"char",v:false},
+  {t:"say",who:"narr",text:"土曜日、午前9時50分。みどり台、高橋さんの実家の前。"},
+  {t:"say",who:"oni",text:"約束は15分だ。電話で自分から言った時間だぞ。忘れるなよ。"},
+  {t:"say",who:"oni",text:"今日のゴールは、訪問査定の約束だ。家の中をきちんと見せてもらう日を決める。"},
+  {t:"say",who:"you",text:"今日、このまま見せてもらうのは……"},
+  {t:"say",who:"oni",text:"欲張るな。家の中は、亡くなったおふくろさんの暮らしそのものだ。他人に見せるには、気持ちの準備がいる。"},
+  {t:"banner",kind:"mission",title:"ミッション",text:"訪問査定の約束を取りつけろ"},
+  {t:"hud",v:true},
+  {t:"say",who:"oni",text:"それと、今日は電話と違う。相手の顔が見える。表情としぐさを、よく見ろ。"},
+  {t:"say",who:"oni",text:"時計は、約束の15分に対する残り時間だ。雑談やもたつきは、そのまま時間を食う。"},
+  {t:"say",who:"narr",text:"インターホンを押す。しばらくして、玄関の引き戸が開いた――"},
+
+  {t:"bg",v:"room"},{t:"cp",id:"s1"},
+  {t:"char",v:true,face:"stern",pose:"crossed"},
+  {t:"say",who:T,text:"……あんたが、電話の。",face:"stern"},
+  {t:"say",who:T,text:"思ってたより若いな。まあ、座んな。散らかってるがな。",face:"doubt"},
+  {t:"say",who:"narr",text:"通されたのは、段ボールが積まれた居間だった。部屋の隅に、小さな仏壇がある。"},
+  {t:"choice",prompt:"最初にどうする？",observe:"腕を組み、こちらを値踏みするように見ている。話しながら一瞬、目線が仏壇のほうへ動いた。",options:[
+    {label:"「庭の柿の木、見事ですね。毎年なるんですか」",line:"お庭の柿の木、見事ですね。毎年あんなになるんですか。",tech:["rapport"],kind:"neutral",wall:-5,time:150,then:[
+      {t:"say",who:T,text:"ああ。おふくろが毎年、干し柿にして近所に配ってた。",face:"soft"},
+      {t:"say",who:T,text:"……で、時間はいいのか？15分なんだろ。",face:"stern"},
+      {t:"say",who:"inner",text:"雑談で、時間を使ってしまった……。"}]},
+    {label:"「お線香を、あげさせていただけますか」",line:"もしよろしければ……お線香を、あげさせていただけますか。",tech:[],kind:"neutral",wall:-10,time:60,then:[
+      {t:"say",who:T,text:"……！",face:"surprise"},
+      {t:"say",who:T,text:"……ああ。おふくろも、喜ぶよ。",face:"soft"},
+      {t:"say",who:"narr",text:"線香の煙が、静かにのぼっていく。"},
+      {t:"say",who:T,text:"……変わった不動産屋だな。",face:"soft",pose:"table"}]},
+    {label:"「さっそく、お約束の資料をご説明します」",line:"本日はありがとうございます。さっそく、お約束の資料をご説明します。",tech:[],kind:"neutral",time:60,then:[
+      {t:"say",who:T,text:"……ああ。",face:"neutral"},
+      {t:"say",who:"inner",text:"空気が、硬いままだ……。"}]}
+  ]},
+
+  {t:"say",who:T,text:"で、今日は何を持ってきたんだ。",face:"stern",pose:"crossed"},
+  {t:"choice",prompt:"どう切り出す？",observe:"腕時計に目をやった。約束の15分を、向こうも気にしている。",options:[
+    {label:"「では、弊社の売却実績からご説明します！」",line:"ありがとうございます！では、まず弊社の売却実績からご説明させてください。昨年は……",tech:["reactance"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"……あんたの会社の自慢を聞くために、時間をとったんじゃない。",face:"annoyed"}]},
+    {label:"「えっと……いろいろと、お持ちしました」",line:"えっと……いろいろと、お持ちしました。どれからにしましょう……。",tech:["evasion"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"はっきりせんな。こっちが決めるのか。",face:"annoyed"}]},
+    {label:"「15分の使い方を、先にご相談させてください」",line:"お約束の15分で、資料のご説明を5分。残りは高橋さんのご質問に使っていただいて、最後に、次に進む価値があるかをご判断いただく。そんな流れでいかがでしょう。",tech:["agenda"],kind:"good",wall:-20,then:[
+      {t:"say",who:T,text:"……ほう。",face:"surprise"},
+      {t:"say",who:T,text:"時間を守る気はあるんだな。いいよ、それで。",face:"soft",pose:"table"}]}
+  ]},
+
+  {t:"cp",id:"s2"},
+  {t:"say",who:T,text:"来月、おふくろの一周忌で、東京から妹が帰ってくる。",face:"neutral"},
+  {t:"say",who:T,text:"それまでに、売るか残すか、少しは考えをまとめときたい。だから会うことにしたんだ。",face:"think"},
+  {t:"say",who:"narr",text:"あなたは資料を広げ、売る・貸す・しばらく持つ、それぞれの選び方とかかる費用を、5分で説明した。"},
+  {t:"say",who:"narr",text:"高橋さんは黙って聞いていたが、やがて仏壇のほうに目をやった。"},
+  {t:"say",who:T,text:"……正直、売るのが正しいのか、わからん。おふくろは、この家が好きだったからな。",face:"sad"},
+  {t:"say",who:"inner",text:"ここが、この人の本音の入り口だ……。"},
+  {t:"choice",prompt:"どう返す？",timer:15,observe:"声が小さくなった。腕組みがゆるみ、肩が落ちている。答えがほしいのではなく、聞いてほしいのかもしれない。",options:[
+    {label:"「迷われて当然です。お母様は、この家のどこが」",line:"迷われるのは、当然だと思います。……お母様は、この家のどんなところがお好きだったんですか。",tech:["labeling","open_q"],kind:"good",wall:-25,then:[
+      {t:"say",who:T,text:"……！",face:"surprise",fx:["zoom"],sfx:"hit"},
+      {t:"say",who:T,text:"……庭の柿だよ。毎年、干し柿にして、近所に配ってた。",face:"soft",pose:"table"},
+      {t:"say",who:T,text:"「この家には、また誰かに住んでほしいねえ」って、よく言ってたよ。",face:"sad"},
+      {t:"note",id:"F6"},
+      {t:"say",who:"inner",text:"売るか残すかじゃない。お母様の願いを、どう形にするかだ……。"}]},
+    {label:"「売るのが正しいですよ。空き家は傷む一方です」",line:"売るのが正しいと思いますよ。空き家は、傷む一方ですから。",tech:["premature_rebuttal"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"……あんたに、正しいかどうか決めてもらう気はない。",face:"annoyed",pose:"crossed"}]},
+    {label:"「お気持ち、よくわかります」",line:"お気持ち、よくわかります。",tech:["script_reading"],kind:"bad",trust:-1,then:[
+      {t:"say",who:T,text:"……会ったばかりのあんたに、何がわかる。",face:"annoyed",pose:"crossed"}]}
+  ]},
+
+  {t:"cp",id:"s3"},
+  {t:"say",who:T,text:"……で、ほかに聞きたいことは。時間、あんまりないぞ。",face:"stern"},
+  {t:"banner",kind:"phase",title:"ヒアリング",text:"質問できるのは2つまで。本音を引き出せ"},
+  {t:"say",who:"inner",text:"約束の時間を考えると、聞けるのは2つが限界だ。何を聞く……？"},
+  {t:"call",fn:askMenu},
+  {t:"say",who:"you",text:"ありがとうございます。……高橋さん。一度、家の中をきちんと拝見して、根拠のある査定額をお出しさせていただけませんか。"},
+  {t:"say",who:T,text:"……家の中を、か。",face:"smirk",pose:"crossed",fx:["glint"],sfx:"glint"},
+  {t:"say",who:"inner",text:"来た……。ここからが本番だ。"},
+
+  {t:"cp",id:"s4"},
+  {t:"banner",kind:"rush",title:"反論ラッシュ",text:"制限時間内に、すべての反論を受け止めろ"},
+  {t:"rush",v:true},
+  {t:"say",who:T,text:"家の中を見せるってことは、おふくろの暮らしを、他人に見せるってことだ。",face:"stern"},
+  {t:"say",who:T,text:"まだ片付いてもいない。そんなもん、見せられるか！",face:"angry",pose:"slam",fx:["shake"],sfx:"impact"},
+  {t:"note",id:"F3"},
+  {t:"call",fn:rush1},
+  {t:"say",who:T,text:"……それにな。査定に来たら、あそこが古い、ここが傷んでるって、あら探しして安く買い叩く気だろ。",face:"smirk",pose:"crossed",fx:["glint"],sfx:"glint"},
+  {t:"call",fn:rush2},
+  {t:"say",who:T,text:"……正直に言うとな。大手の不動産屋からも「何社か査定を取りましょう」って手紙が来てる。",face:"doubt"},
+  {t:"say",who:T,text:"何社かに頼んだほうが、得なんじゃないのか？",face:"doubt"},
+  {t:"note",id:"F4"},
+  {t:"call",fn:rush3},
+  {t:"rush",v:false},
+  {t:"call",fn:afterRush},
+
+  {t:"cp",id:"s5"},
+  {t:"call",fn:timeCheck},
+  {t:"say",who:T,text:"……で。俺はどうすりゃいい。",face:"neutral",pose:"table"},
+  {t:"choice",prompt:"最後の一手",observe:"腕組みが解け、身を乗り出している。ただ、時計もちらりと見た。今日はここまで、という合図かもしれない。",options:[
+    {label:"「次は一周忌の前に、1時間だけ。土曜と日曜、どちらが？」",line:"お約束の15分なので、今日はここで失礼します。次は一周忌の前に、1時間だけお時間をください。家の中と書類を拝見して、妹様とのお話に使える、根拠のある査定額をお持ちします。来週の土曜と日曜、どちらがご都合よいですか。",tech:["fitd","double_bind"],kind:"good",final:"A",then:[]},
+    {label:"「では、お気持ちが決まったらご連絡ください」",line:"承知しました。では、お気持ちが決まりましたら、いつでもご連絡ください。",tech:["passive_close"],kind:"bad",trust:0,final:"C",then:[]},
+    {label:"「せっかくなので、今から家の中を見せてください」",line:"ありがとうございます！せっかくなので、今から家の中をひと通り見せていただけませんか。",tech:["premature_ask"],kind:"bad",trust:-2,final:"B",then:[
+      {t:"say",who:T,text:"調子に乗るなよ！",face:"angry",pose:"slam",fx:["shake","flash"],sfx:"impact"}]}
+  ]}
+];
+
+return {
+  ep:"第2話", name:"はじめての訪問", notes:NOTES, questions:QUESTIONS, script:SCRIPT, finale, timeout:TIMEOUT,
+  askObserve:"段ボールの山に目をやりながら、こちらの質問を待っている。家の「困りごと」や「大事なもの」に触れられれば、壁は崩れそうだ。",
+  gameover:() => kickOut("もういい。帰ってくれ。", "gameover"),
+  time:90, badExtra:60, limit:LIMIT, clockHour:10, bestKey:"urayomi2.best.ch2", requires:"ch1",
+  texts:{over:"追い返された", overSub:"信頼を失い、家から追い返されてしまった……", failSub:"最後の一手で、高橋さんを怒らせてしまった……",
+    success:"訪問査定の約束を取りつけた", hold:"訪問査定の約束は取れなかった", timeLabel:"面談時間", note:"本音は1回の訪問では全部集まりません。ヒアリングで別の質問を選ぶと、新しい攻め手が見つかります。"}
+};
+})();
+
+const CHAPTERS = {ch1:CH1, ch2:CH2};
+Object.entries(CHAPTERS).forEach(([id, c]) => { c.id = id; c.title = `${c.ep}　${c.name}`; });
+let CH = CH1;
+
 /* ===================== 保存 ===================== */
 const store = {
   get(k,d){ try{ const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); }catch(e){ return d; } },
@@ -1036,7 +1337,7 @@ function setPose(p){
 function setPhone(v){
   cur.phone = v;
   scene.classList.toggle("phone", v);
-  scene.setAttribute("aria-label", v ? "受話器を耳に当てる高橋さん" : "応接間で向かい合う高橋さん");
+  scene.setAttribute("aria-label", v ? "受話器を耳に当てる高橋さん" : "居間で向かい合う高橋さん");
   setPose(cur.pose);
 }
 function setBg(v){ cur.bg = v; scene.dataset.bg = v; stage.dataset.bg = v; }
@@ -1085,9 +1386,11 @@ function renderHud(){
   $("#wallNum").textContent = G.wall;
   $("#noteCount").textContent = G.notes.length;
   $("#hudTime").textContent = callText(G.seconds);
-  $("#hudLeft").textContent = cur.phone ? "通話中" : G.seconds ? "通話終了" : "通話前";
+  const over = !!CH.limit && G.seconds > CH.limit;
+  $("#hudLeft").textContent = CH.limit ? (over ? "約束を超過" : `／約束${CH.limit / 60}分`) : cur.phone ? "通話中" : G.seconds ? "通話終了" : "通話前";
+  $(".hud-clock").classList.toggle("over", over);
   $("#mHand").setAttribute("transform", `rotate(${G.seconds / 10})`);
-  $("#hHand").setAttribute("transform", `rotate(${60 + G.seconds / 120})`);
+  $("#hHand").setAttribute("transform", `rotate(${(CH.clockHour % 12) * 30 + G.seconds / 120})`);
   stage.classList.toggle("danger", cur.hud && G.trust <= 2 && G.trust > 0);
 }
 function changeTrust(d){
@@ -1232,10 +1535,10 @@ async function banner(c, my){
 }
 
 function addNote(id){
-  if (!NOTES[id] || G.notes.includes(id)) return;
+  if (!CH.notes[id] || G.notes.includes(id)) return;
   G.notes.push(id);
   renderHud();
-  toast("手帳にメモ", NOTES[id]);
+  toast("手帳にメモ", CH.notes[id]);
   retrigger($("#noteBtn"), "pulse");
 }
 
@@ -1307,7 +1610,7 @@ function choice(c){
         fill.style.width = Math.max(0, left / (c.timer * 1000) * 100) + "%";
         const sec = Math.ceil(left / 1000);
         if (sec !== lastSec) { lastSec = sec; num.textContent = sec + "秒"; if (sec <= 5 && sec > 0) { tEl.classList.add("low"); SFX.tick(); } }
-        if (left <= 0) finish(c.timeout || TIMEOUT);
+        if (left <= 0) finish(c.timeout || CH.timeout);
       }, 100);
     } else stopTimer();
   });
@@ -1317,13 +1620,13 @@ function expandOption(o){
   if (o.kind === "bad") seq.push(...(o.then || []), {t:"effect", o});
   else seq.push({t:"effect", o}, ...(o.then || []));
   if (o.after) seq.push(...o.after);
-  if (o.final) seq.push({t:"call", fn: () => finale(o.final)});
+  if (o.final) seq.push({t:"call", fn: () => CH.finale(o.final)});
   seq.push({t:"checkTrust"});
   return seq;
 }
 async function effect(o, my){
   const techs = (o.tech || []).filter(id => DEX[id]);
-  G.seconds += (o.time != null ? o.time : 45) + (o.kind === "bad" ? 15 : 0);
+  G.seconds += o.time != null ? o.time : CH.time + (o.kind === "bad" ? CH.badExtra : 0);
   if (o.qid) { G.asked.push(o.qid); G.qLeft--; }
   unlock(techs);
   if (o.kind === "bad") {
@@ -1343,13 +1646,14 @@ async function effect(o, my){
 }
 
 function gameoverSeq(){
-  return hangUp("もういい。切るぞ。", "gameover");
+  return CH.gameover();
 }
 
 /* ===================== 開始・終了 ===================== */
-function startGame(){
+function startGame(id){
+  if (typeof id === "string" && CHAPTERS[id]) CH = CHAPTERS[id];
   abortRun();
-  G = freshState(); Q = SCRIPT.slice(); CP = null;
+  G = freshState(); Q = CH.script.slice(); CP = null;
   setRush(false); setHud(false); setPhone(false); setFace("stern"); setPose("crossed");
   titleScreen.hidden = true; endScreen.hidden = true; dock.hidden = false;
   tbox.hidden = false; cbox.hidden = true; toastEl.hidden = true;
@@ -1373,9 +1677,18 @@ function toTitle(){
   setBg("room"); setChar(true); setPhone(true); setFace("stern"); setPose("crossed"); setRush(false); setHud(false);
   stage.classList.remove("danger");
   dock.hidden = true; endScreen.hidden = true; titleScreen.hidden = false;
-  const best = store.get("urayomi2.best", null);
-  $("#bestRank").textContent = best ? `ベスト ${best}` : "はじめる";
+  const ids = Object.keys(CHAPTERS);
+  const next = ids.find(id => chapterOpen(id) && !cleared(id)) || ids[0];
+  document.querySelectorAll("[data-ch]").forEach(b => {
+    const c = CHAPTERS[b.dataset.ch], open = chapterOpen(c.id), best = store.get(c.bestKey, null);
+    b.disabled = !open;
+    b.classList.toggle("primary", c.id === next);
+    b.querySelector(".st").textContent = !open ? `${CHAPTERS[c.requires].ep}クリアで解放` : best ? `ベスト ${best}` : "はじめる";
+  });
 }
+/* 成功（S・A・B）で章クリア。次の章は前の章をクリアすると遊べる */
+function cleared(id){ return ["S", "A", "B"].includes(store.get(CHAPTERS[id].bestKey, null)); }
+function chapterOpen(id){ const r = CHAPTERS[id].requires; return !r || cleared(r); }
 
 const RANK_ORDER = ["S", "A", "B", "C", "D"];
 function endGame(v){
@@ -1385,9 +1698,9 @@ function endGame(v){
   dock.hidden = true;
   if (v === "gameover" || v === "fail") {
     const ng = DEX[G.lastNG] || DEX.silence;
-    endScreen.append(el("p", "es-chap", CHAPTER));
-    endScreen.append(el("p", "es-over", "電話を切られた"));
-    endScreen.append(el("p", "es-sub", v === "gameover" ? "信頼を失い、途中で電話を切られてしまった……" : "最後の一手で、高橋さんを怒らせてしまった……"));
+    endScreen.append(el("p", "es-chap", CH.title));
+    endScreen.append(el("p", "es-over", CH.texts.over));
+    endScreen.append(el("p", "es-sub", v === "gameover" ? CH.texts.overSub : CH.texts.failSub));
     const adv = el("div", "advice");
     adv.append(el("b", null, "鬼塚先輩"));
     adv.append(el("p", null, `「${ng.name}」はまずかったな。${ng.tip}`));
@@ -1397,21 +1710,22 @@ function endGame(v){
     endScreen.append(acts);
   } else {
     const rank = v === "success" ? (G.trust >= 5 ? "S" : G.trust >= 3 ? "A" : "B") : "C";
-    const best = store.get("urayomi2.best", null);
-    if (!best || RANK_ORDER.indexOf(rank) < RANK_ORDER.indexOf(best)) store.set("urayomi2.best", rank);
-    endScreen.append(el("p", "es-chap", CHAPTER));
+    const best = store.get(CH.bestKey, null);
+    if (!best || RANK_ORDER.indexOf(rank) < RANK_ORDER.indexOf(best)) store.set(CH.bestKey, rank);
+    endScreen.append(el("p", "es-chap", CH.title));
     const row = el("div", "es-rankrow");
     row.append(el("span", "es-rank r-" + rank, rank));
     const col = el("div");
     col.append(el("p", "es-result", v === "success" ? "ミッション達成" : "保留"));
-    col.append(el("p", "es-sub", v === "success" ? "会う約束を取りつけた" : "会う約束は取れなかった"));
+    col.append(el("p", "es-sub", v === "success" ? CH.texts.success : CH.texts.hold));
     row.append(col);
     endScreen.append(row);
     const ul = el("ul", "es-stats");
     const li = (a, b) => { const l = el("li"); l.append(el("span", null, a), el("span", null, b)); ul.append(l); };
     li("残った信頼", "♥".repeat(G.trust) + "♡".repeat(5 - G.trust));
-    li("手帳に集めた本音", `${G.notes.length}／6`);
-    li("通話時間", callText(G.seconds));
+    const total = Object.keys(CH.notes).length;
+    li("手帳に集めた本音", `${G.notes.length}／${total}`);
+    li(CH.texts.timeLabel, callText(G.seconds));
     endScreen.append(ul);
     if (G.used.length) {
       endScreen.append(el("p", "es-h", "使ったテクニック"));
@@ -1421,9 +1735,11 @@ function endGame(v){
       endScreen.append(el("p", "es-h", "やってしまったNG"));
       const ch = el("div", "chips"); G.ng.forEach(id => ch.append(el("span", "chip ng", DEX[id].name))); endScreen.append(ch);
     }
-    endScreen.append(el("p", "es-note", G.notes.length < 6 ? "本音は1回の電話では全部集まりません。ヒアリングで別の質問を選ぶと、新しい攻め手が見つかります。" : "本音をすべて集めました。"));
+    endScreen.append(el("p", "es-note", G.notes.length < total ? CH.texts.note : "本音をすべて集めました。"));
     const acts = el("div", "es-actions");
-    acts.append(btn("もう一度プレイ", "abtn primary", startGame), btn("テクニック図鑑を見る", "abtn", openDex), btn("タイトルへ", "abtn", toTitle));
+    const next = v === "success" && CH.next && CHAPTERS[CH.next];
+    if (next) acts.append(btn(`${next.ep}「${next.name}」へ進む`, "abtn primary", () => startGame(next.id)));
+    acts.append(btn("もう一度プレイ", next ? "abtn" : "abtn primary", startGame), btn("テクニック図鑑を見る", "abtn", openDex), btn("タイトルへ", "abtn", toTitle));
     endScreen.append(acts);
   }
   endScreen.hidden = false;
@@ -1461,12 +1777,12 @@ function openDex(){
   });
 }
 function openNotes(){
-  openSheet(`手帳　${G ? G.notes.length : 0}／6`, body => {
+  openSheet(`手帳　${G ? G.notes.length : 0}／${Object.keys(CH.notes).length}`, body => {
     body.append(el("p", "lead", "高橋さんから聞き出した本音です。選択肢に「手帳」と付いたものは、ここに書いた情報を使えます。"));
-    Object.keys(NOTES).forEach(id => {
+    Object.keys(CH.notes).forEach(id => {
       const got = G && G.notes.includes(id);
       const c = el("article", "card" + (got ? "" : " locked"));
-      c.append(el("h4", null, got ? NOTES[id] : "？？？"));
+      c.append(el("h4", null, got ? CH.notes[id] : "？？？"));
       body.append(c);
     });
   });
@@ -1488,7 +1804,7 @@ function toggleSound(){
 }
 $("#sndBtn").addEventListener("click", toggleSound);
 $("#titleSnd").addEventListener("click", toggleSound);
-$("#startBtn").addEventListener("click", () => { const c = ac(); if (soundOn && c && c.resume) c.resume(); startGame(); });
+document.querySelectorAll("[data-ch]").forEach(b => b.addEventListener("click", () => { const c = ac(); if (soundOn && c && c.resume) c.resume(); startGame(b.dataset.ch); }));
 
 /* 舞台の比率に合わせてカメラを決める（顔が上から4割の位置に来るように） */
 function fitScene(){
